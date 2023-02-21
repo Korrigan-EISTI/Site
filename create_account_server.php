@@ -5,19 +5,11 @@
     </head>
     <body>
         <?php
-        $login=simplexml_load_file("logins.xml");
-        $auth=false;
-        foreach ($login->user as $user)
+        $mysqli = new mysqli("localhost", "lama", "lama_admin", "lama");
+        $result = $mysqli->query("SELECT id FROM user WHERE \"".$_POST["email"]."\" = user.email");
+        if($result->num_rows)
         {
-            if($_POST["email"]==$user->email)
-            {
-                $exist=true;
-            }
-        }
-        if($exist)
-        {
-            echo '
-            <form id="form" action="login.php" method="post">
+            echo '<form id="form" action="login.php" method="post">
                 <input type="hidden" name="created" value="false">
             </form>
             <script type="text/javascript">
@@ -25,12 +17,7 @@
             </script>';
         }
         else{
-            print_r($login);
-            $new_user=$login->addChild('user');
-            $new_user->addChild('email',$_POST["email"]);
-            $new_user->addChild('password',$_POST["password"]);
-            print_r($login);
-            $login->asXML("logins.xml");
+            $mysqli->query("INSERT INTO user (email,password) VALUES (\"".$_POST["email"]."\",\"".$_POST["password"]."\")");
             echo '
             <form id="form" action="login.php" method="post">
                 <input type="hidden" name="created" value="true">

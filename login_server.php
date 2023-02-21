@@ -10,7 +10,7 @@
         if($result->num_rows)
         {
             session_start();
-            $_SESSION['id']= mysqli_fetch_assoc($result)['ids'];
+            $_SESSION['id']= mysqli_fetch_assoc($result)['id'];
             header("location:site.php");
         }
         else{
@@ -22,7 +22,6 @@
                 document.getElementById("form").submit();
             </script>';
         }
-        fclose($file);
         ?>
     </body>
 </html>

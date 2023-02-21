@@ -4,6 +4,6 @@
         <title>Login</title>
     </head>
     <body>
-        <p>hello</p>
+        <p><?php session_start();echo $_SESSION['id'];?></p>
     </body>
 </html>
