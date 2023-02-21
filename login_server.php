@@ -11,7 +11,7 @@
         {
             session_start();
             $_SESSION['id']= mysqli_fetch_assoc($result)['id'];
-            header("location:site.php");
+            header("location:html/site.php");
         }
         else{
             echo '

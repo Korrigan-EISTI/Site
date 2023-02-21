@@ -1,0 +1,185 @@
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* - - - - - - - - - - - - - - - - - - - - Variables CSS - - - - - - - - - - - - - - - - - - - - */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+
+:root {
+    --lama_orange:#ffa600;
+    --police_font:#ffffff;
+    --user_id_font:#d3d3d3;
+    --bg_color:#000000;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* - - - - - - - - - - - - - - - - - - - - Type - - - - - - - - - - - - - - - - - - - - */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+
+header {
+    text-align: start;
+    display: flex;
+    justify-content: space-between;
+    font-family:Arial;
+}
+
+body {
+    background-color: var(--bg_color);
+    color: var(--police_font);
+    text-align: center;
+    height: 100%;
+    font-family:Arial;
+    flex-direction: column;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* - - - - - - - - - - - - - - - - - - - - ID - - - - - - - - - - - - - - - - - - - - */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+
+/* - - - - - - - - - - Header - - - - - - - - - - */
+
+#lama_logo {
+    margin-left: 40px;
+    width: 100px;
+    height: 100px;
+}
+
+#connexion_button {
+	background-color: var(--lama_orange);
+	border-radius:28px;
+	cursor:pointer;
+	color:white;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+    margin-top: 1.8%;
+    margin-right: 40px;
+    height: min-content;
+}
+
+/* - - - - - - - - - - Info - - - - - - - - - - */
+
+#user_pic {
+    width: 120px;
+    height: 120px;
+}
+
+#user_name {
+    font-style: bold;
+    font-size: 20px;
+    margin-top: 5%;
+}
+
+#user_id {
+    font-style: italic;
+    color: var(----user_id_font);
+    font-size: 10px;
+    margin-top: -3%;
+}
+
+#profile_links>a {
+    color: var(--police_font);
+    text-decoration: none;
+}
+
+#post_button {
+	background-color: var(--lama_orange);
+	border-radius:28px;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+    margin-top: 1.25%;
+    height: min-content;
+    border: none;
+}
+
+/* - - - - - - - - - - Feed - - - - - - - - - - */
+
+#div_feed {
+    width: 45%;
+}
+
+/* - - - - - - - - - - Friendlist - - - - - - - - - - */
+
+#div_friendlist {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-height: 100%;
+}
+
+#search_bar {
+    margin-top: 12%;
+    background-color: #ffffff;
+    border: 2px solid lightgray;
+    border-radius: 15px;
+    padding: 2%;
+    width: 80%;
+}
+
+#friendlist {
+    background-color: #ffffff;
+    border: 2px solid lightgray;
+    border-radius: 15px;
+    padding: 2%;
+    width: 80%;
+    max-height: 65%;
+    margin: auto;
+    margin-bottom: 0;
+    text-align: left;
+    overflow: auto;
+}
+
+#friends {
+    overflow: hidden;
+}
+
+#friendlist b {
+    font-size: 100%;
+}
+
+#friendlist i {
+    font-size: 75%;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* - - - - - - - - - - - - - - - - - - - - Class - - - - - - - - - - - - - - - - - - - - */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: stretch;
+    flex:2;
+}
+
+.item {
+    flex-grow: 1 2 1;
+    border: 2px solid #ffa500;
+    border-radius: 5%;
+    box-shadow: var(--lama_orange) 3px 3px, #c0c0c0d0 -3px -3px 20px;
+    width: 25%;
+}
+
+.friend_block {
+    color: #000000;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5%;
+    margin-top: 2%;
+    margin-bottom: 6%;
+}
+
+.friend_img {
+    width: 20%;
+    height: 20%;
+    float: left;
+}
