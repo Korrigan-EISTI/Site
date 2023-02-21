@@ -1,4 +1,13 @@
-/*- - - - - - - - - - Type - - - - - - - - - - */
+/* - - - - - - - - - - - - - - - - - - - - Variables CSS - - - - - - - - - - - - - - - - - - - - */
+
+:root {
+    --lama_orange:#ffa600;
+    --police_font:#ffffff;
+    --user_id_font:#d3d3d3;
+    --bg_color:#000000;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - Type - - - - - - - - - - - - - - - - - - - - */
 
 header {
     text-align: start;
@@ -8,19 +17,19 @@ header {
 }
 
 body {
-    background-color: black;
-    color: white;
+    background-color: var(--bg_color);
+    color: var(--police_font);
     text-align: center;
     height: 100%;
     font-family:Arial;
 }
 
 #profile_links>a {
-    color: white;
+    color: var(--police_font);
     text-decoration: none;
 }
 
-/* - - - - - - - - - - ID - - - - - - - - - - */
+/* - - - - - - - - - - - - - - - - - - - - ID - - - - - - - - - - - - - - - - - - - - */
 
 #div_feed {
     width: 45%;
@@ -33,14 +42,14 @@ body {
 }
 
 #connexion_button {
-	background-color:#ffa600;
+	background-color: var(--lama_orange);
 	border-radius:28px;
 	cursor:pointer;
-	color:#ffffff;
+	color:white;
 	font-size:17px;
 	padding:16px 31px;
 	text-decoration:none;
-    margin-top: 1.25%;
+    margin-top: 1.8%;
     margin-right: 40px;
     height: min-content;
 }
@@ -58,13 +67,13 @@ body {
 
 #user_id {
     font-style: italic;
-    color: lightgray;
+    color: var(----user_id_font);
     font-size: 10px;
     margin-top: -3%;
 }
 
 #post_button {
-	background-color:#ffa600;
+	background-color: var(--lama_orange);
 	border-radius:28px;
 	cursor:pointer;
 	color:#ffffff;
@@ -73,9 +82,10 @@ body {
 	text-decoration:none;
     margin-top: 1.25%;
     height: min-content;
+    border: none;
 }
 
-/* - - - - - - - - - - Class - - - - - - - - - - */
+/* - - - - - - - - - - - - - - - - - - - - Class - - - - - - - - - - - - - - - - - - - - */
 
 .container {
     display: flex;
@@ -90,6 +100,6 @@ body {
     flex-grow: 1 2 1;
     /* border: 2px solid #ffa500; */
     border-radius: 5%;
-    box-shadow: #ffa500 3px 3px;
+    box-shadow: var(--lama_orange) 3px 3px, lightgrey -3px -3px 20px;
     width: 25%;
 }
