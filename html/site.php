@@ -37,7 +37,6 @@
         
         <div id="div_feed" class="item">
             <div id="postlist">
-                <div id="posts">
                 
                     <div class="post_block">
                         <div id="post_block_user_info">
@@ -91,7 +90,110 @@
                         </div>
                     </div>
 
-                </div>
+                    <div class="post_block">
+                        <div id="post_block_user_info">
+                            <img src="../img/user_profile_pictures/car_lover.jpg">
+                            <br>
+                            <b>Clément Cassiet</b>
+                            <br>
+                            <i>@car_lover</i>
+                        </div>
+                        <div id="post_block_text">
+                            <p>Donec nec feugiat lorem. Donec facilisis ipsum eu tellus aliquam, nec imperdiet velit fermentum. Aliquam lacinia felis justo. Nullam sed enim in risus lacinia suscipit. Morbi a aliquet elit. Morbi volutpat neque in mauris gravida condimentum.</p>
+                        </div>
+                    </div>
+
+                    <div class="post_block">
+                        <div id="post_block_user_info">
+                            <img src="../img/user_profile_pictures/car_lover.jpg">
+                            <br>
+                            <b>Clément Cassiet</b>
+                            <br>
+                            <i>@car_lover</i>
+                        </div>
+                        <div id="post_block_text">
+                            <p>Donec nec feugiat lorem. Donec facilisis ipsum eu tellus aliquam, nec imperdiet velit fermentum. Aliquam lacinia felis justo. Nullam sed enim in risus lacinia suscipit. Morbi a aliquet elit. Morbi volutpat neque in mauris gravida condimentum.</p>
+                        </div>
+                    </div>
+
+                    <div class="post_block">
+                        <div id="post_block_user_info">
+                            <img src="../img/user_profile_pictures/car_lover.jpg">
+                            <br>
+                            <b>Clément Cassiet</b>
+                            <br>
+                            <i>@car_lover</i>
+                        </div>
+                        <div id="post_block_text">
+                            <p>Donec nec feugiat lorem. Donec facilisis ipsum eu tellus aliquam, nec imperdiet velit fermentum. Aliquam lacinia felis justo. Nullam sed enim in risus lacinia suscipit. Morbi a aliquet elit. Morbi volutpat neque in mauris gravida condimentum.</p>
+                        </div>
+                    </div>
+
+                    <div class="post_block">
+                        <div id="post_block_user_info">
+                            <img src="../img/user_profile_pictures/car_lover.jpg">
+                            <br>
+                            <b>Clément Cassiet</b>
+                            <br>
+                            <i>@car_lover</i>
+                        </div>
+                        <div id="post_block_text">
+                            <p>Donec nec feugiat lorem. Donec facilisis ipsum eu tellus aliquam, nec imperdiet velit fermentum. Aliquam lacinia felis justo. Nullam sed enim in risus lacinia suscipit. Morbi a aliquet elit. Morbi volutpat neque in mauris gravida condimentum.</p>
+                        </div>
+                    </div>
+
+                    <div class="post_block">
+                        <div id="post_block_user_info">
+                            <img src="../img/user_profile_pictures/car_lover.jpg">
+                            <br>
+                            <b>Clément Cassiet</b>
+                            <br>
+                            <i>@car_lover</i>
+                        </div>
+                        <div id="post_block_text">
+                            <p>Donec nec feugiat lorem. Donec facilisis ipsum eu tellus aliquam, nec imperdiet velit fermentum. Aliquam lacinia felis justo. Nullam sed enim in risus lacinia suscipit. Morbi a aliquet elit. Morbi volutpat neque in mauris gravida condimentum.</p>
+                        </div>
+                    </div>
+
+                    <div class="post_block">
+                        <div id="post_block_user_info">
+                            <img src="../img/user_profile_pictures/car_lover.jpg">
+                            <br>
+                            <b>Clément Cassiet</b>
+                            <br>
+                            <i>@car_lover</i>
+                        </div>
+                        <div id="post_block_text">
+                            <p>Donec nec feugiat lorem. Donec facilisis ipsum eu tellus aliquam, nec imperdiet velit fermentum. Aliquam lacinia felis justo. Nullam sed enim in risus lacinia suscipit. Morbi a aliquet elit. Morbi volutpat neque in mauris gravida condimentum.</p>
+                        </div>
+                    </div>
+
+                    <div class="post_block">
+                        <div id="post_block_user_info">
+                            <img src="../img/user_profile_pictures/car_lover.jpg">
+                            <br>
+                            <b>Clément Cassiet</b>
+                            <br>
+                            <i>@car_lover</i>
+                        </div>
+                        <div id="post_block_text">
+                            <p>Donec nec feugiat lorem. Donec facilisis ipsum eu tellus aliquam, nec imperdiet velit fermentum. Aliquam lacinia felis justo. Nullam sed enim in risus lacinia suscipit. Morbi a aliquet elit. Morbi volutpat neque in mauris gravida condimentum.</p>
+                        </div>
+                    </div>
+
+                    <div class="post_block">
+                        <div id="post_block_user_info">
+                            <img src="../img/user_profile_pictures/car_lover.jpg">
+                            <br>
+                            <b>Clément Cassiet</b>
+                            <br>
+                            <i>@car_lover</i>
+                        </div>
+                        <div id="post_block_text">
+                            <p>Donec nec feugiat lorem. Donec facilisis ipsum eu tellus aliquam, nec imperdiet velit fermentum. Aliquam lacinia felis justo. Nullam sed enim in risus lacinia suscipit. Morbi a aliquet elit. Morbi volutpat neque in mauris gravida condimentum.</p>
+                        </div>
+                    </div>
+
             </div>
         </div>
         
@@ -184,5 +286,4 @@
     </div>
 
 </body>
-
 </html>

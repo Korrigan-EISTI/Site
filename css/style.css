@@ -116,23 +116,16 @@ body {
 
 #div_feed {
     flex: 1 1;
+    overflow: auto;
 }
 
 #postlist {
-    border-radius: 15px;
-    width: 90%;
+    padding: 5%;
     margin: auto;
     margin-top: 20px;
     overflow-y: auto;
     color:black;
-}
-
-#posts {
-    display: flex;
-    flex-direction: column;
-    row-gap: 10px;
-    overflow: none;
-    max-height: 490px;
+    max-height: 70vh;/*meh, not really responsive*/
 }
 
 #postlist img {
@@ -159,11 +152,10 @@ body {
     background-color: white;
     box-shadow: var(--main_divs_shadow) 1px 1px 5px;
     border-radius: 15px;
-    padding-top: 2%;
-    padding-left: 2%;
-    padding-right: 1%;
+    padding: 2%;
     width: 98%;
     margin: auto;
+    margin-bottom: 10px;
     text-align: justify;
     color:black;
 }
@@ -248,7 +240,11 @@ body {
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* - - - - - - - - - - - - - - - - - - - - Scroll - - - - - - - - - - - - - - - - - - - - */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-
+/*Firefox*/
+*{
+    scrollbar-width: auto;
+    scrollbar-color: var(--lama_orange) transparent;
+}
 /* width */
 ::-webkit-scrollbar {
     width: 8px;
