@@ -48,7 +48,7 @@
             <div id="d3">
             <small>Vous vous connectez à :</small><br>
             <strong>Lama</strong>
-            <br><br><br>
+            <br>
             </div>
             <div id="d4">
             <table>
