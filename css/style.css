@@ -42,29 +42,6 @@ body {
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
-/* - - - - - - - - - - Header - - - - - - - - - - */
-
-#lama_logo {
-    margin-left: 40px;
-    margin-top: 10px;
-    width: 100px;
-    height: 100px;
-}
-
-#connexion_button {
-	background-color: var(--lama_orange);
-	border-radius:28px;
-	cursor:pointer;
-	color:white;
-	font-size:17px;
-	padding:16px 31px;
-	text-decoration:none;
-    margin-top: 1.8%;
-    margin-right: 40px;
-    float: right;
-}
-
-
 #div_main{
     flex:2;
     display: flex;
@@ -120,12 +97,11 @@ body {
 }
 
 #postlist {
-    padding: 5%;
+    padding: 30px;
     margin: auto;
-    margin-top: 20px;
     overflow-y: auto;
     color:black;
-    max-height: 70vh;/*meh, not really responsive*/
+    height: 70vh;
 }
 
 #postlist img {
@@ -160,7 +136,7 @@ body {
     color:black;
 }
 
-#post_block_user_info {
+.post_block_user_info {
     display: inline-block;
 }
 
@@ -189,11 +165,12 @@ body {
     border-radius: 15px;
     padding: 2%;
     width: 80%;
-    max-height: 74.5%;
+    min-height: 80%;
     margin: auto;
     margin-bottom: 0;
     text-align: left;
     overflow: auto;
+    height: 50vh;/*meh, not really responsive*/
 }
 
 #friends {
@@ -236,6 +213,7 @@ body {
     border-radius: 40px;
     box-shadow: var(--lama_orange) 3px 3px, var(--main_divs_shadow) -3px -3px 20px;
     margin:10px;
+    min-width: 20%;
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* - - - - - - - - - - - - - - - - - - - - Scroll - - - - - - - - - - - - - - - - - - - - */

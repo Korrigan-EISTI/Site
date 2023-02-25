@@ -53,8 +53,8 @@
             <div id="d4">
             <table>
                 <tr>
-                <td>Email</td>
-                <td><input type="email" name="email" id="email" ></td>
+                <td>Id utilisateur</td>
+                <td><input name="user_id" id="user_id" ></td>
                 </tr>
                 <tr>
                 <td>Mot de passe</td>

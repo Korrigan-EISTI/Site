@@ -5,12 +5,13 @@
     </head>
     <body>
         <?php
+        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         $mysqli = new mysqli("localhost", "lama", "lama_admin", "lama");
-        $result = $mysqli->query("SELECT id FROM user WHERE \"".$_POST["email"]."\" = user.email AND \"".$_POST["password"]."\"=user.password");
+        $result = $mysqli->execute_query("SELECT user_id FROM `user` WHERE ? = user.user_id AND ? = user.password",[$_POST["user_id"],$_POST["password"]]);
         if($result->num_rows)
         {
             session_start();
-            $_SESSION['id']= mysqli_fetch_assoc($result)['id'];
+            $_SESSION['user_id']= mysqli_fetch_assoc($result)['user_id'];
             header("location:html/site.php");
         }
         else{
