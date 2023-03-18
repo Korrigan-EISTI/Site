@@ -16,4 +16,18 @@ CREATE TABLE post (
 INSERT INTO `user` (user_id,name,email,password) VALUES ("lama","lama","lama@lama.com","lama");
 INSERT INTO `user` (user_id,name,email,password) VALUES ("l","l","l@l.com","456");
 INSERT INTO `post` (user_id,`date`,message) VALUES ("lama",CAST( CURDATE() AS Date ),"hello world");
+INSERT INTO `post` (user_id,`date`,message) VALUES ("lama",CAST( CURDATE() AS Date ),"hello world");
+INSERT INTO `post` (user_id,`date`,message) VALUES ("lama",CAST( CURDATE() AS Date ),"hello world");
+INSERT INTO `post` (user_id,`date`,message) VALUES ("lama",CAST( CURDATE() AS Date ),"hello world");
+INSERT INTO `post` (user_id,`date`,message) VALUES ("lama",CAST( CURDATE() AS Date ),"hello world");
+INSERT INTO `post` (user_id,`date`,message) VALUES ("lama",CAST( CURDATE() AS Date ),"hello world");
+INSERT INTO `post` (user_id,`date`,message) VALUES ("lama",CAST( CURDATE() AS Date ),"hello world");
+INSERT INTO `post` (user_id,`date`,message) VALUES ("lama",CAST( CURDATE() AS Date ),"hello world");
+INSERT INTO `post` (user_id,`date`,message) VALUES ("lama",CAST( CURDATE() AS Date ),"hello world");
+INSERT INTO `post` (user_id,`date`,message) VALUES ("lama",CAST( CURDATE() AS Date ),"hello world");
+INSERT INTO `post` (user_id,`date`,message) VALUES ("lama",CAST( CURDATE() AS Date ),"hello world");
+INSERT INTO `post` (user_id,`date`,message) VALUES ("lama",CAST( CURDATE() AS Date ),"hello world");
+INSERT INTO `post` (user_id,`date`,message) VALUES ("lama",CAST( CURDATE() AS Date ),"hello world");
+INSERT INTO `post` (user_id,`date`,message) VALUES ("lama",CAST( CURDATE() AS Date ),"hello world");
+INSERT INTO `post` (user_id,`date`,message) VALUES ("lama",CAST( CURDATE() AS Date ),"hello world");
 SELECT user_id FROM `user` WHERE "lama@lama.com" = `user`.email AND "lama"=`user`.password;
