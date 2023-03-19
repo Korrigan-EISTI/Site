@@ -1,3 +1,34 @@
+<?php
+function fetch_comment($result,$indent)
+{
+    global $mysqli;
+    while ($row = $result->fetch_assoc()) {
+        if(file_exists("'../img/user_profile_pictures/".$row["user_id"].".jpg")){
+            $img=$row["user_id"];
+        }
+        else{
+            $img="default";
+        }
+        printf("
+        <div class='post_block' style='margin-left:".$indent."px'>\n
+            <div class='post_block_user_info'>\n
+                <img src='../img/user_profile_pictures/%s.jpg'>
+                <b>%s</b>
+                <br>
+                <i>@%s</i>
+            </div>
+            <div class='post_block_text'>
+                <p>%s</p>
+            </div>
+        </div>", $img,htmlspecialchars($row["name"]),htmlspecialchars($row["user_id"]),htmlspecialchars($row["message"]));
+        $comments = $mysqli->execute_query("SELECT Post.user_id,Post.date,Post.message,Post.id,User.name FROM Post NATURAL JOIN User WHERE parent_id = ?",[$row["id"]]);
+        
+        fetch_comment($comments,$indent + 50);
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -32,30 +63,9 @@
         <div id="div_feed" class="panel">
             <div id="postlist">
                 <?php
-                mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
                 $mysqli = new mysqli("localhost", "lama", "lama_admin", "lama");
-                $result = $mysqli->execute_query("SELECT post.user_id,post.date,post.message,user.name FROM post NATURAL JOIN user");
-                while ($row = $result->fetch_assoc()) {
-                    if(file_exists("'../img/user_profile_pictures/".$row["user_id"].".jpg")){
-                        $img=$row["user_id"];
-                    }
-                    else{
-                        $img="default";
-                    }
-                    printf("
-                    <div class='post_block'>\n
-                        <div class='post_block_user_info'>\n
-                            <img src='../img/user_profile_pictures/%s.jpg'>
-                            <br>
-                            <b>%s</b>
-                            <br>
-                            <i>@%s</i>
-                        </div>
-                        <div class='post_block_text'>
-                            <p>%s</p>
-                        </div>
-                    </div>", $img,htmlspecialchars($row["name"]),htmlspecialchars($row["user_id"]),htmlspecialchars($row["message"]));
-                }
+                $result = $mysqli->execute_query("SELECT Post.user_id,Post.date,Post.message,Post.id,User.name FROM Post NATURAL JOIN User WHERE parent_id IS NULL");
+                fetch_comment($result,0);
                 ?>
             </div>
         </div>

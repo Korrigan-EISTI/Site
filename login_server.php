@@ -7,7 +7,7 @@
         <?php
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         $mysqli = new mysqli("localhost", "lama", "lama_admin", "lama");
-        $result = $mysqli->execute_query("SELECT user_id FROM `user` WHERE ? = user.user_id AND ? = user.password",[$_POST["user_id"],$_POST["password"]]);
+        $result = $mysqli->execute_query("SELECT user_id FROM `User` WHERE ? = User.user_id AND ? = User.password",[$_POST["user_id"],$_POST["password"]]);
         if($result->num_rows)
         {
             session_start();
