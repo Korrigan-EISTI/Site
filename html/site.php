@@ -10,8 +10,8 @@ function fetch_comment($result,$indent)
             $img="default";
         }
         printf("
-        <div class='post_block' style='margin-left:".$indent."px'>\n
-            <div class='post_block_user_info'>\n
+        <div id='%d' class='post_block' style='margin-left:".$indent."px'>
+            <div class='post_block_user_info'>
                 <img src='../img/user_profile_pictures/%s.jpg'>
                 <b>%s</b>
                 <br>
@@ -20,7 +20,12 @@ function fetch_comment($result,$indent)
             <div class='post_block_text'>
                 <p>%s</p>
             </div>
-        </div>", $img,htmlspecialchars($row["name"]),htmlspecialchars($row["user_id"]),htmlspecialchars($row["message"]));
+            <button class='show_reply'>Reply</button>
+            <div class='reply' style='display:none'>
+                <textarea rows='5' placeholder='Reply...'></textarea>
+                <button>Send</button>
+            </div>
+        </div>",$row["id"],$img,htmlspecialchars($row["name"]),htmlspecialchars($row["user_id"]),htmlspecialchars($row["message"]));
         $comments = $mysqli->execute_query("SELECT Post.user_id,Post.date,Post.message,Post.id,User.name FROM Post NATURAL JOIN User WHERE parent_id = ?",[$row["id"]]);
         
         fetch_comment($comments,$indent + 50);

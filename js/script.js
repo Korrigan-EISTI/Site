@@ -15,3 +15,13 @@ function change_theme() {
         root.style.setProperty('--shadow','#ffffff40');
     }
 }
+const toggle_display = target => target.style.display = (target.style.display == 'none') ? 'block' : 'none';
+function toggle_reply(event){
+    toggle_display(event.target.parentNode.children[3]);
+};
+window.onload = (event) => {
+    var elements = document.getElementsByClassName("show_reply");
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].addEventListener('click', toggle_reply, false);
+    }
+  };
