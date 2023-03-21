@@ -45,7 +45,7 @@ body{
     font-style: bold;
     font-size: 20px;
     margin-top: 5%;
-    color: var(--user_id_font);
+    color: var(--police_font);
 }
 #user_id {
     font-style: italic;
