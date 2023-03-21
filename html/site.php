@@ -1,5 +1,5 @@
 <?php
-function fetch_comment($result,$indent)
+function fetch_comment($result)
 {
     global $mysqli;
     while ($row = $result->fetch_assoc()) {
@@ -10,7 +10,7 @@ function fetch_comment($result,$indent)
             $img="default";
         }
         printf("
-        <div id='%d' class='post_block' style='margin-left:".$indent."px'>
+        <div id='%d' class='post_block'>
             <div class='post_block_user_info'>
                 <img src='../img/user_profile_pictures/%s.jpg'>
                 <b>%s</b>
@@ -18,17 +18,19 @@ function fetch_comment($result,$indent)
                 <i>@%s</i>
             </div>
             <div class='post_block_text'>
-                <p>%s</p>
+                %s
             </div>
-            <button class='show_reply'>Reply</button>
+            <button class='show_reply' onclick='toggle_reply(event)'>Reply</button>
             <div class='reply' style='display:none'>
                 <textarea rows='5' placeholder='Reply...'></textarea>
-                <button>Send</button>
+                <button class='send' onclick='send(event)'>Send</button>
             </div>
         </div>",$row["id"],$img,htmlspecialchars($row["name"]),htmlspecialchars($row["user_id"]),htmlspecialchars($row["message"]));
         $comments = $mysqli->execute_query("SELECT Post.user_id,Post.date,Post.message,Post.id,User.name FROM Post NATURAL JOIN User WHERE parent_id = ?",[$row["id"]]);
         
-        fetch_comment($comments,$indent + 50);
+        echo("<div class='indent'>");
+        fetch_comment($comments);
+        echo("</div>");
     }
 }
 ?>
@@ -45,6 +47,21 @@ function fetch_comment($result,$indent)
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" type="image/png" href="../img/lama_icon.png">
     <script type="text/javascript" src="../js/script.js"></script>
+    <?php
+    session_start();
+    if(file_exists("'../img/user_profile_pictures/".$row["user_id"].".jpg")){
+        $img=$row["user_id"];
+    }
+    else{
+        $img="default";
+    }
+    printf("<div style='display:none'>
+    <p id='user_id'>%s</p>
+    <p id='name'>%s</p>
+    <p id='email'>%s</p>
+    <p id='img'>%s</p></div>",$_SESSION["user_id"],$_SESSION["name"],$_SESSION["email"],$img);
+    ?>
+
 </head>
 
 <body>
@@ -70,7 +87,7 @@ function fetch_comment($result,$indent)
                 <?php
                 $mysqli = new mysqli("localhost", "lama", "lama_admin", "lama");
                 $result = $mysqli->execute_query("SELECT Post.user_id,Post.date,Post.message,Post.id,User.name FROM Post NATURAL JOIN User WHERE parent_id IS NULL");
-                fetch_comment($result,0);
+                fetch_comment($result);
                 ?>
             </div>
         </div>
@@ -103,54 +120,6 @@ function fetch_comment($result,$indent)
                             <b>Sujeeban Mahendran</b>
                             <br>
                             <i>@sujeebioss</i>
-                        </div>
-                    </div>
-                    <div class="friend_block">
-                        <img src="../img/user_profile_pictures/durag_man.jpg">
-                        <div>
-                            <b>Adam Bouhrara</b>
-                            <br>
-                            <i>@durag_man</i>
-                        </div>
-                    </div>
-                    <div class="friend_block">
-                        <img src="../img/user_profile_pictures/fabinou69.jpg">
-                        <div>
-                            <b>Fabien Cerf</b>
-                            <br>
-                            <i>@fabinou69</i>
-                        </div>
-                    </div>
-                    <div class="friend_block">
-                        <img src="../img/user_profile_pictures/jordan_goatier.jpg">
-                        <div>
-                            <b>Jordan Gautier</b>
-                            <br>
-                            <i>@jordan_goatier</i>
-                        </div>
-                    </div>
-                    <div class="friend_block">
-                        <img src="../img/user_profile_pictures/fuck_liza.jpg">
-                        <div>
-                            <b>Aniss Hassan</b>
-                            <br>
-                            <i>@fuck_liza</i>
-                        </div>
-                    </div>
-                    <div class="friend_block">
-                        <img src="../img/user_profile_pictures/code_master.jpg">
-                        <div>
-                            <b>Joan Legrand</b>
-                            <br>
-                            <i>@code_master</i>
-                        </div>
-                    </div>
-                    <div class="friend_block">
-                        <img src="../img/user_profile_pictures/car_lover.jpg">
-                        <div>
-                            <b>Clément Cassiet</b>
-                            <br>
-                            <i>@car_lover</i>
                         </div>
                     </div>
 

@@ -1,3 +1,10 @@
+function htmlToElement(html) {
+    var template = document.createElement('template');
+    template.innerHTML = html.trim();
+    return template.content.firstChild;
+}
+const toggle_display = target => target.style.display = (target.style.display == 'none') ? 'block' : 'none';
+
 function change_theme() {
     var root = document.querySelector(':root') ;
     var rootStyles = getComputedStyle(root) ;
@@ -15,13 +22,51 @@ function change_theme() {
         root.style.setProperty('--shadow','#ffffff40');
     }
 }
-const toggle_display = target => target.style.display = (target.style.display == 'none') ? 'block' : 'none';
 function toggle_reply(event){
     toggle_display(event.target.parentNode.children[3]);
 };
-window.onload = (event) => {
-    var elements = document.getElementsByClassName("show_reply");
-    for (var i = 0; i < elements.length; i++) {
-        elements[i].addEventListener('click', toggle_reply, false);
+function send(event){
+    if(event.target.parentNode.children[0].value.trim()==""){
+        return
     }
-  };
+    var post_block = event.target.parentNode.parentNode;
+    let request = new XMLHttpRequest();
+    // 2. Le configure : GET-request pour l'URL /article/.../load
+    var data = new FormData();
+    data.append("msg" , event.target.parentNode.children[0].value);
+    data.append("parent_id",post_block.id);
+    // 3. Envoyer la requête sur le réseau
+    request.open("POST", '/html/post.php', true);
+    request.onreadystatechange = () => {
+        // In local files, status is 0 upon success in Mozilla Firefox
+        if (request.readyState === XMLHttpRequest.DONE) {
+            const status = request.status;
+            if (status === 0 || (status >= 200 && status < 400)) {
+                // The request has been completed successfully
+                var indent;
+                if(!(post_block.nextSibling && post_block.nextSibling.classList.contains("indent"))){
+                    post_block.insertAdjacentHTML('afterend',"<div class='indent'></div>");
+                }
+                post_block.nextSibling.insertAdjacentHTML('beforeend', `<div id='${request.responseText}' class='post_block'>
+                    <div class='post_block_user_info'>
+                        <img src='../img/user_profile_pictures/${document.getElementById("img").innerHTML}.jpg'>
+                        <b>${document.getElementById("name").innerHTML}</b>
+                        <br>
+                        <i>@${document.getElementById("user_id").innerHTML}</i>
+                    </div>
+                    <div class='post_block_text'>
+                        ${event.target.parentNode.children[0].value}
+                    </div>
+                    <button class='show_reply' onclick='toggle_reply(event)'>Reply</button>
+                    <div class='reply' style='display:none'>
+                        <textarea rows='5' placeholder='Reply...'></textarea>
+                        <button class='send' onclick='send(event)'>Send</button>
+                    </div>
+                </div>`);
+            }
+        }
+    };
+    request.send(data);
+}
+window.onload = (event) => {
+};

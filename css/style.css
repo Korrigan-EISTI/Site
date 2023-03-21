@@ -98,10 +98,16 @@ body{
 .post_block_user_info>button{
     float: right;
 }
+.post_block_text{
+    white-space: pre-line;
+}
 .reply>textarea{
 	box-sizing: border-box;
-
 	width: 100%;
+    resize: vertical;
+}
+.indent{
+    margin-left: 50px;
 }
 /*friends*/
 #div_friendlist {
