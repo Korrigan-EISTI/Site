@@ -86,7 +86,7 @@ function fetch_comment($result)
             <div id="postlist">
                 <?php
                 $mysqli = new mysqli("localhost", "lama", "lama_admin", "lama");
-                $result = $mysqli->execute_query("SELECT Post.user_id,Post.date,Post.message,Post.id,User.name FROM Post NATURAL JOIN User WHERE parent_id IS NULL");
+                $result = $mysqli->query("SELECT Post.user_id,Post.date,Post.message,Post.id,User.name FROM Post NATURAL JOIN User WHERE parent_id IS NULL");
                 fetch_comment($result);
                 ?>
             </div>
@@ -98,36 +98,29 @@ function fetch_comment($result)
             <div id="friendlist">
                 <div id="friends">
                     <?php
-                    $result = $mysqli->execute_query("SELECT friends.friend_id, friends.friend_name from Friends, User WHERE friends.friend_id = user.user_id");
+                    $result = $mysqli->execute_query("SELECT Friends.user_id_2, User.name from Friends INNER JOIN User ON Friends.user_id_2 = User.user_id WHERE Friends.user_id_1 = ?",[$_SESSION["user_id"]]);
                     foreach($result as $row){
                         printf("<div class='friend_block'>
-                        <img src='../img/user_profile_pictures/".$row["friend_id"].".jpg'>
+                        <img src='../img/user_profile_pictures/%s.jpg'>
                         <div>
                             <b>%s</b>
                             <br>
                             <i>@%s</i>
                         </div>
-                    </div>",$row["friend_name"], $row["friend_id"]);
+                    </div>", $row["user_id_2"], $row["name"], $row["user_id_2"]);
+                    }
+                    $result = $mysqli->execute_query("SELECT Friends.user_id_1, User.name from Friends INNER JOIN User ON Friends.user_id_1 = User.user_id WHERE Friends.user_id_2 = ?",[$_SESSION["user_id"]]);
+                    foreach($result as $row){
+                        printf("<div class='friend_block'>
+                        <img src='../img/user_profile_pictures/%s.jpg'>
+                        <div>
+                            <b>%s</b>
+                            <br>
+                            <i>@%s</i>
+                        </div>
+                    </div>", $row["user_id_1"], $row["name"], $row["user_id_1"]);
                     }
                     ?>
-                    <!-- 
-                    <div class="friend_block">
-                        <img src="../img/user_profile_pictures/unicorn_princess123.jpg">
-                        <div>
-                            <b>Manel Hamane</b>
-                            <br>
-                            <i>@unicorn_princess123</i>
-                        </div>
-                    </div>
-                    <div class="friend_block">
-                        <img src="../img/user_profile_pictures/sujeebioss.jpg">
-                        <div>
-                            <b>Sujeeban Mahendran</b>
-                            <br>
-                            <i>@sujeebioss</i>
-                        </div>
-                    </div> -->
-
                 </div>
             </div>
         </div>
