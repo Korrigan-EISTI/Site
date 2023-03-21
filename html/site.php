@@ -97,15 +97,20 @@ function fetch_comment($result)
 
             <div id="friendlist">
                 <div id="friends">
-
-                    <div class="friend_block">
-                        <img src="../img/user_profile_pictures/ugo.jpg">
+                    <?php
+                    $result = $mysqli->execute_query("SELECT friends.friend_id, friends.friend_name from Friends, User WHERE friends.friend_id = user.user_id");
+                    foreach($result as $row){
+                        printf("<div class='friend_block'>
+                        <img src='../img/user_profile_pictures/".$row["friend_id"].".jpg'>
                         <div>
-                            <b>Ugo Merlier</b>
+                            <b>%s</b>
                             <br>
-                            <i>@ugo_tracteur</i>
+                            <i>@%s</i>
                         </div>
-                    </div>
+                    </div>",$row["friend_name"], $row["friend_id"]);
+                    }
+                    ?>
+                    <!-- 
                     <div class="friend_block">
                         <img src="../img/user_profile_pictures/unicorn_princess123.jpg">
                         <div>
@@ -121,12 +126,11 @@ function fetch_comment($result)
                             <br>
                             <i>@sujeebioss</i>
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>
         </div>
     </div>
-
 </body>
 </html>
