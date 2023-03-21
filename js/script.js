@@ -63,6 +63,7 @@ function send(event){
                         <button class='send' onclick='send(event)'>Send</button>
                     </div>
                 </div>`);
+                event.target.parentNode.children[0].value="";
             }
         }
     };

@@ -49,8 +49,8 @@ function fetch_comment($result)
     <script type="text/javascript" src="../js/script.js"></script>
     <?php
     session_start();
-    if(file_exists("'../img/user_profile_pictures/".$row["user_id"].".jpg")){
-        $img=$row["user_id"];
+    if(file_exists("'../img/user_profile_pictures/".$_SESSION["user_id"].".jpg")){
+        $img=$_SESSION["user_id"];
     }
     else{
         $img="default";
