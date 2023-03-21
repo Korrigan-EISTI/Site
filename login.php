@@ -71,17 +71,17 @@
         <?php
         if(isset($_POST["login"]))
         {
-            echo "<p style='background-color:red'>identifiant ou mot de passe erroné</p>";
+            echo "<p style='background-color:red'>Identifiant ou mot de passe erroné.</p>";
         }
         if(isset($_POST["created"]))
         {
             if($_POST["created"])
             {
-                echo "<p style='background-color:green'>compte créé avec succes</p>";
+                echo "<p style='background-color:green'>Compte créé avec succès.</p>";
             }
             else
             {
-                echo "<p style='background-color:orange'>compte déjà existant</p>";
+                echo "<p style='background-color:orange'>Compte déjà existant.</p>";
             }
         }
         ?>
