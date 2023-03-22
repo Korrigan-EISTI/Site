@@ -21,11 +21,11 @@ CREATE TABLE Post (
 );
 
 CREATE TABLE Friends(
-  user_id varchar(50) NOT NULL,
-  friend_id varchar(50) NOT NULL,
-  PRIMARY KEY(user_id, friend_id),
-  FOREIGN KEY (user_id) REFERENCES User(user_id),
-  FOREIGN KEY (friend_id) REFERENCES User(user_id)
+  user_id_1 varchar(50) NOT NULL,
+  user_id_2 varchar(50) NOT NULL,
+  PRIMARY KEY(user_id_1, user_id_2),
+  FOREIGN KEY (user_id_1) REFERENCES User(user_id),
+  FOREIGN KEY (user_id_2) REFERENCES User(user_id)
 );
 
 INSERT INTO `User` (user_id,name,email,password) VALUES ("lama","lama","lama@lama.com","lama");
@@ -36,6 +36,6 @@ INSERT INTO `Post` (user_id,`date`,message) VALUES ("lama",CAST( CURDATE() AS Da
 INSERT INTO `Post` (user_id,`date`,message) VALUES ("lama",CAST( CURDATE() AS Date ),"hello world");
 INSERT INTO `Post` (user_id,`date`,message,parent_id) VALUES ("lama",CAST( CURDATE() AS Date ),"hello world",1);
 INSERT INTO `Post` (user_id,`date`,message,parent_id) VALUES ("lama",CAST( CURDATE() AS Date ),"hello world",2);
-INSERT INTO `Friends` (user_id, friend_id) VALUES ("lama", "car_lover");
-INSERT INTO `Friends` (user_id, friend_id) VALUES ("lama", "code_master");
-INSERT INTO `Friends` (user_id, friend_id) VALUES ("lama", "ugo");
+INSERT INTO `Friends` (user_id_1, user_id_2) VALUES ("lama", "car_lover");
+INSERT INTO `Friends` (user_id_1, user_id_2) VALUES ("lama", "code_master");
+INSERT INTO `Friends` (user_id_1, user_id_2) VALUES ("lama", "ugo");
