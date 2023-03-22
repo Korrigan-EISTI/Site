@@ -22,7 +22,7 @@ function fetch_comment($result)
             </div>
             <button class='show_reply' onclick='toggle_reply(event)'>Reply</button>
             <div class='reply' style='display:none'>
-                <textarea rows='5' placeholder='Reply...'></textarea>
+                <textarea rows='5' placeholder='Reply...'  maxlength='200'></textarea>
                 <button class='send' onclick='send(event)'>Send</button>
             </div>
         </div>",$row["id"],$img,htmlspecialchars($row["name"]),htmlspecialchars($row["user_id"]),htmlspecialchars($row["message"]));

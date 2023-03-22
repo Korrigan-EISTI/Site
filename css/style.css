@@ -5,7 +5,7 @@
     --lama_orange:#ffa600;
     --police_font:#ffffff;
     --user_id_font:#d3d3d3;
-    --main_divs_shadow:#5a5a5a;
+    --main_divs_shadow:#b9b9b9bb;
     --bg_color:#000000;
 }
 
@@ -24,9 +24,8 @@ body{
     display: flex;
 }
 .panel{
-    border: 2px solid var(--lama_orange);
     border-radius: 20px;
-    box-shadow: var(--lama_orange) 3px 3px, var(--main_divs_shadow) -3px -3px 20px;
+    box-shadow: var(--main_divs_shadow) -3px -3px 20px;
     margin:5px;
 }
 /* feed */
@@ -100,6 +99,8 @@ body{
 }
 .post_block_text{
     white-space: pre-line;
+    width: 100%;
+    word-wrap: anywhere;
 }
 .reply>textarea{
 	box-sizing: border-box;
