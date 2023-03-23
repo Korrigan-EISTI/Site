@@ -1,4 +1,5 @@
 <?php
+session_start();
 function fetch_comment($result)
 {
     global $mysqli;
@@ -48,8 +49,7 @@ function fetch_comment($result)
     <link rel="icon" type="image/png" href="../img/lama_icon.png">
     <script type="text/javascript" src="../js/script.js"></script>
     <?php
-    session_start();
-    if(file_exists("'../img/user_profile_pictures/".$_SESSION["user_id"].".jpg")){
+    if(file_exists("../img/user_profile_pictures/".$_SESSION["user_id"].".jpg")){
         $img=$_SESSION["user_id"];
     }
     else{
@@ -71,10 +71,15 @@ function fetch_comment($result)
         <div id="div_profile" class="panel">
             <div id="user_info"><br>
                 <?php
-                     printf("
+                    if(file_exists("../img/user_profile_pictures/".$_SESSION["user_id"].".jpg")){
+                        $img=$_SESSION["user_id"];
+                    }else{
+                        $img="default";
+                    }
+                    printf("
                         <img id='user_pic' src='../img/user_profile_pictures/%s.jpg'>
                         <p id='user_name'>%s</p>
-                        <p id='user_id'>@%s</p><br>", $_SESSION["user_id"], $_SESSION["name"], $_SESSION["user_id"]);
+                        <p id='user_id'>@%s</p><br>", $img, $_SESSION["name"], $_SESSION["user_id"]);
                 ?>    
             </div>
 
@@ -101,9 +106,9 @@ function fetch_comment($result)
             <div id="friendlist">
                 <div id="friends">
                     <?php
-                    $result = $mysqli->execute_query("SELECT Friends.user_id_2, User.name from Friends INNER JOIN User ON Friends.user_id_2 = User.user_id WHERE Friends.user_id_1 = ?",[$_SESSION["user_id"]]);
+                    $result = $mysqli->execute_query("SELECT Friends.user_id_2, User.name, Friends.user_id_2 from Friends INNER JOIN User ON Friends.user_id_2 = User.user_id WHERE Friends.user_id_1 = ?",[$_SESSION["user_id"]]);
                     foreach($result as $row){
-                        if(file_exists("'../img/user_profile_pictures/".$row["user_id_2"].".jpg")){
+                        if(file_exists("../img/user_profile_pictures/".$row["user_id_2"].".jpg")){
                             $img=$row["user_id_2"];
                         }
                         else{
@@ -120,7 +125,7 @@ function fetch_comment($result)
                     }
                     $result = $mysqli->execute_query("SELECT Friends.user_id_1, User.name from Friends INNER JOIN User ON Friends.user_id_1 = User.user_id WHERE Friends.user_id_2 = ?",[$_SESSION["user_id"]]);
                     foreach($result as $row){
-                        if(file_exists("'../img/user_profile_pictures/".$row["user_id_1"].".jpg")){
+                        if(file_exists("../img/user_profile_pictures/".$row["user_id_1"].".jpg")){
                             $img=$row["user_id_1"];
                         }
                         else{
