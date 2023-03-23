@@ -31,6 +31,7 @@ CREATE TABLE Friends(
 INSERT INTO `User` (user_id,name,email,password) VALUES ("lama","lama","lama@lama.com","lama");
 INSERT INTO `User` (user_id,name,email,password) VALUES ("car_lover","Clement","car_lover@car_lover.com","car_lover");
 INSERT INTO `User` (user_id,name,email,password) VALUES ("code_master","Joan","code_master@code_master.com","code_master");
+INSERT INTO `User` (user_id,name,email,password) VALUES ("fabinou69","FabinouLeLapinou","fabinou69@fabinou69.com","fabinou69");
 INSERT INTO `User` (user_id,name,email,password) VALUES ("ugo","Ugo","ugo@ugo.com","ugo");
 INSERT INTO `Post` (user_id,`date`,message) VALUES ("lama",CAST( CURDATE() AS Date ),"hello world");
 INSERT INTO `Post` (user_id,`date`,message) VALUES ("lama",CAST( CURDATE() AS Date ),"hello world");
@@ -39,3 +40,4 @@ INSERT INTO `Post` (user_id,`date`,message,parent_id) VALUES ("lama",CAST( CURDA
 INSERT INTO `Friends` (user_id_1, user_id_2) VALUES ("lama", "car_lover");
 INSERT INTO `Friends` (user_id_1, user_id_2) VALUES ("lama", "code_master");
 INSERT INTO `Friends` (user_id_1, user_id_2) VALUES ("lama", "ugo");
+INSERT INTO `Friends` (user_id_1, user_id_2) VALUES ("fabinou69", "lama");

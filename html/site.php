@@ -69,10 +69,13 @@ function fetch_comment($result)
     <div id="div_main">
 
         <div id="div_profile" class="panel">
-            <div id="user_info">
-                <img id="user_pic" src="../img/user_profile_pictures/mr_president.jpg">
-                <p id="user_name">Lilian Fellouh</p><br>
-                <p id="user_id">@mr_president</p><br>
+            <div id="user_info"><br>
+                <?php
+                     printf("
+                        <img id='user_pic' src='../img/user_profile_pictures/%s.jpg'>
+                        <p id='user_name'>%s</p>
+                        <p id='user_id'>@%s</p><br>", $_SESSION["user_id"], $_SESSION["name"], $_SESSION["user_id"]);
+                ?>    
             </div>
 
             <div id="profile_links">
@@ -100,6 +103,12 @@ function fetch_comment($result)
                     <?php
                     $result = $mysqli->execute_query("SELECT Friends.user_id_2, User.name from Friends INNER JOIN User ON Friends.user_id_2 = User.user_id WHERE Friends.user_id_1 = ?",[$_SESSION["user_id"]]);
                     foreach($result as $row){
+                        if(file_exists("'../img/user_profile_pictures/".$row["user_id_2"].".jpg")){
+                            $img=$row["user_id_2"];
+                        }
+                        else{
+                            $img="default";
+                        }
                         printf("<div class='friend_block'>
                         <img src='../img/user_profile_pictures/%s.jpg'>
                         <div>
@@ -107,10 +116,16 @@ function fetch_comment($result)
                             <br>
                             <i>@%s</i>
                         </div>
-                    </div>", $row["user_id_2"], $row["name"], $row["user_id_2"]);
+                    </div>", $img, $row["name"], $row["user_id_2"]);
                     }
                     $result = $mysqli->execute_query("SELECT Friends.user_id_1, User.name from Friends INNER JOIN User ON Friends.user_id_1 = User.user_id WHERE Friends.user_id_2 = ?",[$_SESSION["user_id"]]);
                     foreach($result as $row){
+                        if(file_exists("'../img/user_profile_pictures/".$row["user_id_1"].".jpg")){
+                            $img=$row["user_id_1"];
+                        }
+                        else{
+                            $img="default";
+                        }
                         printf("<div class='friend_block'>
                         <img src='../img/user_profile_pictures/%s.jpg'>
                         <div>
@@ -118,7 +133,7 @@ function fetch_comment($result)
                             <br>
                             <i>@%s</i>
                         </div>
-                    </div>", $row["user_id_1"], $row["name"], $row["user_id_1"]);
+                    </div>", $img, $row["name"], $row["user_id_1"]);
                     }
                     ?>
                 </div>
