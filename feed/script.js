@@ -5,6 +5,9 @@ function htmlToElement(html) {
 }
 const toggle_display = target => target.style.display = (target.style.display == 'none') ? 'block' : 'none';
 
+const escapeHtml = (unsafe) => {
+    return unsafe.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;');
+}
 function change_theme() {
     var root = document.querySelector(':root') ;
     var rootStyles = getComputedStyle(root) ;
@@ -36,7 +39,7 @@ function send(event){
     data.append("msg" , event.target.parentNode.children[0].value);
     data.append("parent_id",post_block.id);
     // 3. Envoyer la requête sur le réseau
-    request.open("POST", '/html/post.php', true);
+    request.open("POST", '/core/post.php', true);
     request.onreadystatechange = () => {
         // In local files, status is 0 upon success in Mozilla Firefox
         if (request.readyState === XMLHttpRequest.DONE) {
@@ -49,13 +52,13 @@ function send(event){
                 }
                 post_block.nextSibling.insertAdjacentHTML('beforeend', `<div id='${request.responseText}' class='post_block'>
                     <div class='post_block_user_info'>
-                        <img src='../img/user_profile_pictures/${document.getElementById("img").innerHTML}.jpg'>
-                        <b>${document.getElementById("name").innerHTML}</b>
+                        <img src='/img/user_profile_pictures/${document.getElementById("img").innerHTML}.jpg'>
+                        <b>${escapeHtml(document.getElementById("name").innerHTML)}</b>
                         <br>
                         <i>@${document.getElementById("user_id").innerHTML}</i>
                     </div>
                     <div class='post_block_text'>
-                        ${event.target.parentNode.children[0].value}
+                        ${escapeHtml(event.target.parentNode.children[0].value)}
                     </div>
                     <button class='show_reply' onclick='toggle_reply(event)'>Reply</button>
                     <div class='reply' style='display:none'>

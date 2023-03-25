@@ -45,9 +45,9 @@ function fetch_comment($result)
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lama - Page d'accueil</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="icon" type="image/png" href="../img/lama_icon.png">
-    <script type="text/javascript" src="../js/script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="/img/lama_icon.png">
+    <script type="text/javascript" src="script.js"></script>
     <?php
     if(file_exists("../img/user_profile_pictures/".$_SESSION["user_id"].".jpg")){
         $img=$_SESSION["user_id"];
@@ -65,7 +65,7 @@ function fetch_comment($result)
 </head>
 
 <body>
-    <?php include("header.php"); ?>
+    <?php include("../header/header.php"); ?>
     <div id="div_main">
 
         <div id="div_profile" class="panel">

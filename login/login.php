@@ -67,7 +67,7 @@
         <br>
         <br>
         <button type="button" onclick="location.href='create_account.php'">Creer un compte</button>
-        <button type="button" onclick="location.href='html/site.php'">Continuer sans compte</button>
+        <button type="button" onclick="location.href='/feed/site.php'">Continuer sans compte</button>
         <?php
         if(isset($_POST["login"]))
         {

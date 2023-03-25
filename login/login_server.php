@@ -16,7 +16,7 @@
             $_SESSION['user_id']= $data['user_id'];
             $_SESSION['name']= $data['name'];
             $_SESSION['email']= $data['email'];
-            header("location:html/site.php");
+            header("location:/feed/site.php");
         }
         else{
             echo '
