@@ -102,8 +102,9 @@ function fetch_comment($result)
         
         <div id="div_friendlist" class="panel">
             <input type="text" id="search_bar" placeholder="Rechercher un utilisateur"></input>
-
-            <div id="friendlist">
+            <div id="search_results"></div>
+            <br><div id="friendlist">
+                
                 <div id="friends">
                     <?php
                     $result = $mysqli->execute_query("SELECT Friends.user_id_1, User.name, Friends.user_id_2 from Friends INNER JOIN User ON Friends.user_id_2 = User.user_id WHERE Friends.user_id_1 = ?",[$_SESSION["user_id"]]);
@@ -181,5 +182,30 @@ function fetch_comment($result)
             </div>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#search_bar").keyup(function(){
+                var input = $(this).val();
+                if (input != ""){
+                    $.ajax({
+                        url:"../core/livesearch.php",
+                        method: "post",
+                        data:{input:input},
+
+                        success:function(data){
+                            $("#search_results").html(data);
+                        }
+                    });
+                    $("#search_results").css("display", "flex");
+                    $("#search_results").css("flex-direction", "column");
+                    $("#search_results").css("gap", "1%");
+                    $("#search_results").css("text-align", "left");
+                }else{
+                    $("#search_results").css("display", "none");
+                }
+            });
+        });
+    </script>
 </body>
 </html>
