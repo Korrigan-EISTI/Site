@@ -7,14 +7,14 @@ if (isset($_POST["input"])){
     $result = $mysqli->execute_query("SELECT * from User WHERE User.name LIKE '{$_POST["input"]}%' OR User.user_id LIKE '{$_POST["input"]}%'");
     if (mysqli_num_rows($result) > 0){
         foreach ($result as $res) {
-            if(file_exists("../img/user_profile_pictures/".$res["user_id"].".jpg")){
+            if(file_exists("../img/user_profile_pictures/".$res["user_id"].".webp")){
                 $img=$res["user_id"];
             }
             else{
                 $img="default";
             }
             printf("<div class='friend_block'>
-            <img src='../img/user_profile_pictures/%s.jpg'>
+            <img src='../img/user_profile_pictures/%s.webp'>
             <div>
                 <b>%s</b>
                 <br>
