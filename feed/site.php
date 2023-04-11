@@ -4,7 +4,7 @@ function fetch_comment($result)
 {
     global $mysqli;
     while ($row = $result->fetch_assoc()) {
-        if(file_exists("'../img/user_profile_pictures/".$row["user_id"].".jpg")){
+        if(file_exists("'../img/user_profile_pictures/".$row["user_id"].".webp")){
             $img=$row["user_id"];
         }
         else{
@@ -13,7 +13,7 @@ function fetch_comment($result)
         printf("
         <div id='%d' class='post_block'>
             <div class='post_block_user_info'>
-                <img src='../img/user_profile_pictures/%s.jpg'>
+                <img src='../img/user_profile_pictures/%s.webp'>
                 <b>%s</b>
                 <br>
                 <i>@%s</i>
@@ -24,7 +24,7 @@ function fetch_comment($result)
             <button class='comment_reply_button' onclick='toggle_reply(event)'>↪ Répondre</button>
             <div class='comment_text' style='display:none'>
                 <textarea rows='5' placeholder='✎...'  maxlength='200'></textarea>
-                <img src='../img/send_icon.png' class='comment_send_button' onclick='send(event)'/>
+                <img src='../img/send_icon.webp' class='comment_send_button' onclick='send(event)'/>
             </div>
         </div>",$row["id"],$img,htmlspecialchars($row["name"]),htmlspecialchars($row["user_id"]),htmlspecialchars($row["message"]));
         $comments = $mysqli->execute_query("SELECT Post.user_id,Post.date,Post.message,Post.id,User.name FROM Post NATURAL JOIN User WHERE parent_id = ?",[$row["id"]]);
@@ -46,10 +46,10 @@ function fetch_comment($result)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lama - Page d'accueil</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="/img/lama_icon.png">
+    <link rel="icon" type="image/png" href="/img/lama_icon.webp">
     <script type="text/javascript" src="script.js"></script>
     <?php
-    if(file_exists("../img/user_profile_pictures/".$_SESSION["user_id"].".jpg")){
+    if(file_exists("../img/user_profile_pictures/".$_SESSION["user_id"].".webp")){
         $img=$_SESSION["user_id"];
     }
     else{
@@ -71,22 +71,22 @@ function fetch_comment($result)
         <div id="div_profile" class="panel">
             <div id="user_info"><br>
                 <?php
-                    if(file_exists("../img/user_profile_pictures/".$_SESSION["user_id"].".jpg")){
+                    if(file_exists("../img/user_profile_pictures/".$_SESSION["user_id"].".webp")){
                         $img=$_SESSION["user_id"];
                     }else{
                         $img="default";
                     }
                     printf("
-                        <img id='user_pic' src='../img/user_profile_pictures/%s.jpg'>
+                        <img id='user_pic' src='../img/user_profile_pictures/%s.webp'>
                         <p id='user_name'>%s</p>
                         <p id='user_id'>@%s</p><br>", $img, $_SESSION["name"], $_SESSION["user_id"]);
                 ?>    
             </div>
 
             <div id="profile_links">
-                <a href="#">Mon profil</a><br>
-                <a href="#">Message</a><br>
-                <a href="#" onclick="change_theme();">Thème clair/sombre</a><br>
+                <a href="#"> <img src="../img/user_profile_pictures/default.webp" \> </a><br>
+                <a href="#"> <img src="../img/message_icon.webp" \> </a><br>
+                <a href="#" onclick="change_theme();"> <img src="../img/change_theme_icon.webp" \> </a><br>
             </div>
         </div>
         
@@ -108,14 +108,14 @@ function fetch_comment($result)
                     <?php
                     $result = $mysqli->execute_query("SELECT Friends.user_id_1, User.name, Friends.user_id_2 from Friends INNER JOIN User ON Friends.user_id_2 = User.user_id WHERE Friends.user_id_1 = ?",[$_SESSION["user_id"]]);
                     foreach($result as $row){
-                        if(file_exists("../img/user_profile_pictures/".$row["user_id_2"].".jpg")){
+                        if(file_exists("../img/user_profile_pictures/".$row["user_id_2"].".webp")){
                             $img=$row["user_id_2"];
                         }
                         else{
                             $img="default";
                         }
                         printf("<div class='friend_block'>
-                        <img src='../img/user_profile_pictures/%s.jpg'>
+                        <img src='../img/user_profile_pictures/%s.webp'>
                         <div>
                             <b>%s</b>
                             <br>
@@ -125,14 +125,14 @@ function fetch_comment($result)
                     }
                     $result = $mysqli->execute_query("SELECT Friends.user_id_1, User.name from Friends INNER JOIN User ON Friends.user_id_1 = User.user_id WHERE Friends.user_id_2 = ?",[$_SESSION["user_id"]]);
                     foreach($result as $row){
-                        if(file_exists("../img/user_profile_pictures/".$row["user_id_1"].".jpg")){
+                        if(file_exists("../img/user_profile_pictures/".$row["user_id_1"].".webp")){
                             $img=$row["user_id_1"];
                         }
                         else{
                             $img="default";
                         }
                         printf("<div class='friend_block'>
-                        <img src='../img/user_profile_pictures/%s.jpg'>
+                        <img src='../img/user_profile_pictures/%s.webp'>
                         <div>
                             <b>%s</b>
                             <br>
@@ -142,14 +142,14 @@ function fetch_comment($result)
                     }
                     $request = $mysqli->execute_query("SELECT Request.user_id_1, User.name from Request INNER JOIN User ON Request.user_id_1 = User.user_id WHERE Request.user_id_2 = ?",[$_SESSION["user_id"]]);
                     foreach ($request as $res) {
-                        if(file_exists("../img/user_profile_pictures/".$res["user_id_1"].".jpg")){
+                        if(file_exists("../img/user_profile_pictures/".$res["user_id_1"].".webp")){
                             $img=$res["user_id_1"];
                         }
                         else{
                             $img="default";
                         }
                         printf("<div class='friend_block'>
-                        <img src='../img/user_profile_pictures/%s.jpg'>
+                        <img src='../img/user_profile_pictures/%s.webp'>
                         <div>
                             <b>%s</b>
                             <br>
@@ -160,14 +160,14 @@ function fetch_comment($result)
                     }
                     $request = $mysqli->execute_query("SELECT Request.user_id_1, User.name, Request.user_id_2 from Request INNER JOIN User ON Request.user_id_2 = User.user_id WHERE Request.user_id_1 = ?",[$_SESSION["user_id"]]);
                     foreach ($request as $res) {
-                        if(file_exists("../img/user_profile_pictures/".$res["user_id_2"].".jpg")){
+                        if(file_exists("../img/user_profile_pictures/".$res["user_id_2"].".webp")){
                             $img=$res["user_id_2"];
                         }
                         else{
                             $img="default";
                         }
                         printf("<div class='friend_block'>
-                        <img src='../img/user_profile_pictures/%s.jpg'>
+                        <img src='../img/user_profile_pictures/%s.webp'>
                         <div>
                             <b>%s</b>
                             <br>

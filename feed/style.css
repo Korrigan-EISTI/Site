@@ -20,7 +20,7 @@ body{
 #div_main{
     height: 200px;
     flex: 2;
-    display: flex;
+    display: flex; 
 }
 .panel{
     border-radius: 20px;
@@ -52,9 +52,20 @@ body{
     color: var(--user_id_font);
     font-size: 10px;
 }
+
+#profile_links {
+    margin-top: 10%;
+}
+
 #profile_links>a {
     color: var(--police_font);
     text-decoration: none;
+}
+
+#profile_links>a>img {
+    width: 22%;
+    height: 22%;
+    margin-bottom: 10%;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - Feed panel  - - - - - - - - - - - - - - - - - - - - */

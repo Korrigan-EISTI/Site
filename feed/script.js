@@ -54,7 +54,7 @@ function send(event){
                 }
                 post_block.nextSibling.insertAdjacentHTML('beforeend', `<div id='${request.responseText}' class='post_block'>
                     <div class='post_block_user_info'>
-                        <img src='/img/user_profile_pictures/${document.getElementById("img").innerHTML}.jpg'>
+                        <img src='/img/user_profile_pictures/${document.getElementById("img").innerHTML}.webp'>
                         <b>${escapeHtml(document.getElementById("name").innerHTML)}</b>
                         <br>
                         <i>@${document.getElementById("user_id").innerHTML}</i>
@@ -65,7 +65,7 @@ function send(event){
                     <button class='comment_reply_button' onclick='toggle_reply(event)'>↪ Répondre</button>
                     <div class='comment_text' style='display:none'>
                         <textarea rows='5' placeholder='✎...'></textarea>
-                        <img src='../img/send_icon.png' class='comment_send_button' onclick='send(event)'/>
+                        <img src='../img/send_icon.webp' class='comment_send_button' onclick='send(event)'/>
                     </div>
                 </div>`);
                 event.target.parentNode.children[0].value="";
@@ -85,7 +85,6 @@ function send_friends(event){
     data.append("name", event.target.parentNode.children[0].innerHTML);
     request.open("POST", '/core/friends.php', true);
     request.onreadystatechange = () => {
-        alert(request.readyState);
         // In local files, status is 0 upon success in Mozilla Firefox
         if (request.readyState === XMLHttpRequest.DONE) {
             event.target.remove();
