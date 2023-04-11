@@ -76,7 +76,6 @@ window.onload = (event) => {
 };
 
 function send_friends(event){
-    var post_block = event.target.parentNode.parentNode;
     let request = new XMLHttpRequest();
     var data = new FormData();
     let user_id_2 = event.target.parentNode.children[2].innerHTML.split('@')[1];
