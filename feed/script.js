@@ -27,10 +27,12 @@ function change_theme() {
 }
 function toggle_reply(event){
     toggle_display(event.target.parentNode.children[3]);
-};
+}
+
 function send(event){
+    toggle_display(event.target.parentNode);
     if(event.target.parentNode.children[0].value.trim()==""){
-        return;
+        return
     }
     var post_block = event.target.parentNode.parentNode;
     let request = new XMLHttpRequest();
@@ -60,10 +62,10 @@ function send(event){
                     <div class='post_block_text'>
                         ${escapeHtml(event.target.parentNode.children[0].value)}
                     </div>
-                    <button class='show_reply' onclick='toggle_reply(event)'>Reply</button>
-                    <div class='reply' style='display:none'>
-                        <textarea rows='5' placeholder='Reply...'></textarea>
-                        <button class='send' onclick='send(event)'>Send</button>
+                    <button class='comment_reply_button' onclick='toggle_reply(event)'>↪ Répondre</button>
+                    <div class='comment_text' style='display:none'>
+                        <textarea rows='5' placeholder='✎...'></textarea>
+                        <img src='../img/send_icon.png' class='comment_send_button' onclick='send(event)'/>
                     </div>
                 </div>`);
                 event.target.parentNode.children[0].value="";
@@ -83,6 +85,7 @@ function send_friends(event){
     data.append("name", event.target.parentNode.children[0].innerHTML);
     request.open("POST", '/core/friends.php', true);
     request.onreadystatechange = () => {
+        alert(request.readyState);
         // In local files, status is 0 upon success in Mozilla Firefox
         if (request.readyState === XMLHttpRequest.DONE) {
             event.target.remove();

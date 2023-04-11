@@ -21,10 +21,10 @@ function fetch_comment($result)
             <div class='post_block_text'>
                 %s
             </div>
-            <button class='show_reply' onclick='toggle_reply(event)'>Reply</button>
-            <div class='reply' style='display:none'>
-                <textarea rows='5' placeholder='Reply...'  maxlength='200'></textarea>
-                <button class='send' onclick='send(event)'>Send</button>
+            <button class='comment_reply_button' onclick='toggle_reply(event)'>↪ Répondre</button>
+            <div class='comment_text' style='display:none'>
+                <textarea rows='5' placeholder='✎...'  maxlength='200'></textarea>
+                <img src='../img/send_icon.png' class='comment_send_button' onclick='send(event)'/>
             </div>
         </div>",$row["id"],$img,htmlspecialchars($row["name"]),htmlspecialchars($row["user_id"]),htmlspecialchars($row["message"]));
         $comments = $mysqli->execute_query("SELECT Post.user_id,Post.date,Post.message,Post.id,User.name FROM Post NATURAL JOIN User WHERE parent_id = ?",[$row["id"]]);

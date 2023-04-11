@@ -1,6 +1,5 @@
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-/* - - - - - - - - - - - - - - - - - - - - Variables CSS - - - - - - - - - - - - - - - - - - - - */
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* - - - - - - - - - - - - - - - - - - - - Global variable - - - - - - - - - - - - - - - - - - - - */
+
 :root {
     --lama_orange:#ffa600;
     --police_font:#ffffff;
@@ -28,7 +27,9 @@ body{
     box-shadow: var(--main_divs_shadow) -3px -3px 20px;
     margin:5px;
 }
-/* feed */
+
+/* - - - - - - - - - - - - - - - - - - - - Profile panel  - - - - - - - - - - - - - - - - - - - - */
+
 #div_profile{
     width: 15%;
     text-align: center;
@@ -56,7 +57,7 @@ body{
     text-decoration: none;
 }
 
-/* post */
+/* - - - - - - - - - - - - - - - - - - - - Feed panel  - - - - - - - - - - - - - - - - - - - - */
 
 #div_feed{
     flex: 2;
@@ -102,15 +103,55 @@ body{
     width: 100%;
     word-wrap: anywhere;
 }
-.reply>textarea{
-	box-sizing: border-box;
-	width: 100%;
-    resize: vertical;
-}
+
 .indent{
     margin-left: 50px;
 }
-/*friends*/
+
+.comment_reply_button {
+    margin-top: 2.5%;
+    background-color: rgb(235, 235, 235);
+	border-radius:40px;
+    border:none;
+	cursor:pointer;
+	padding:6px 15px;
+}
+
+.comment_reply_button:hover {
+    background-color: var(--lama_orange);
+}
+
+.comment_text {
+    margin-top: 1%;
+    text-align: right;
+}
+
+.comment_text>textarea{
+    padding: 1%;
+	box-sizing: border-box;
+    border-radius:10px;
+    border-color: var(--lama_orange);
+    resize:none;
+	width: 100%;
+    resize: vertical;
+}
+
+.comment_send_button {
+	cursor:pointer;
+    width: 3%;
+    height: 3%;
+    margin-right: 1%;
+    margin-bottom: -1%;
+    padding: 5px;
+    border-radius: 7px;
+}
+
+.comment_send_button:hover {
+    background-color: var(--lama_orange);
+}
+
+/* - - - - - - - - - - - - - - - - - - - - Friend panel  - - - - - - - - - - - - - - - - - - - - */
+
 #div_friendlist {
     width: 20%;
     display: flex;
@@ -158,16 +199,15 @@ body{
     font-size: 12px;
 }
 
-
-
-/* Scroll */
+/* - - - - - - - - - - - - - - - - - - - - Scrollbar  - - - - - - - - - - - - - - - - - - - - */
 
 /*Firefox*/
 *{
     scrollbar-width: auto;
     scrollbar-color: var(--lama_orange) transparent;
 }
-/* width */
+
+/* Width */
 ::-webkit-scrollbar {
     width: 8px;
 }
