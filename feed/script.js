@@ -30,7 +30,7 @@ function toggle_reply(event){
 };
 function send(event){
     if(event.target.parentNode.children[0].value.trim()==""){
-        return
+        return;
     }
     var post_block = event.target.parentNode.parentNode;
     let request = new XMLHttpRequest();
@@ -74,3 +74,20 @@ function send(event){
 }
 window.onload = (event) => {
 };
+
+function send_friends(event){
+    var post_block = event.target.parentNode.parentNode;
+    let request = new XMLHttpRequest();
+    var data = new FormData();
+    let user_id_2 = event.target.parentNode.children[2].innerHTML.split('@')[1];
+    data.append("user_id_2", user_id_2);
+    data.append("name", event.target.parentNode.children[0].innerHTML);
+    request.open("POST", '/core/friends.php', true);
+    request.onreadystatechange = () => {
+        // In local files, status is 0 upon success in Mozilla Firefox
+        if (request.readyState === XMLHttpRequest.DONE) {
+            event.target.remove();
+        }
+    };
+    request.send(data);
+}
