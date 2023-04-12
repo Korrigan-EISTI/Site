@@ -74,3 +74,45 @@ body{
 #connexion_button:hover {
     border: #000000 2px solid;
 }
+
+/* - - - - - - - - - - - - - - - - - - - - create_account.php  - - - - - - - - - - - - - - - - - - - - */
+
+#main_div {
+    background-color: white;
+    border-radius: 5%;
+    text-align: center;
+    margin: auto;
+    height: 410px;
+    width: 350px;
+    padding: 2%;
+    padding-top: 1%;
+}
+
+#main_div h1 {
+    padding-bottom: 2%;
+}
+
+#main_div table {
+    border-collapse: separate;
+    border-spacing: 0 15px;
+    text-align: left;
+}
+
+#main_div input {
+    border-color: #ffa600;
+}
+
+#create_account_button {
+    background-color: var(--lama_orange);
+	border-radius:40px;
+    border:none;
+	cursor:pointer;
+	padding:10px 50px;
+    font-size: 110%;
+    border: #ffffff 2px solid;
+    margin-top: 2.5%;
+}
+
+#create_account_button:hover {
+    border: #000000 2px solid;
+}

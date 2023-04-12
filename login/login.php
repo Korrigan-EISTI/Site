@@ -6,11 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lama - Connexion</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="/img/lama_icon.png">
-    <script type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" href="./login.css">
+    <link rel="icon" type="image/png" href="/img/lama_icon.webp">
 </head>
-<link rel="stylesheet" href="./login.css" \>
 
 <body>
 
