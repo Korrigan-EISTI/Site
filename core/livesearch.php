@@ -19,13 +19,30 @@ if (isset($_POST["input"])){
                 <b>%s</b>
                 <br>
                 <i>@%s</i>
+                <button onclick='request(event)'>Ajouter</button>
             </div>
             </div>", $img, $res["name"], $res["user_id"]);
         }
     }else{
         echo "<h6 style='text-align: center;'>No data found</h6>";
     }
-    
 }
-
 ?>
+<script type="text/javascript">   
+function request(event){
+    let request = new XMLHttpRequest();
+    var data = new FormData();
+    let user_id_2 = event.target.parentNode.children[2].innerHTML.split('@')[1];    
+    data.append("user_id_2", user_id_2);
+    data.append("name", event.target.parentNode.children[0].innerHTML);
+    request.open("POST", '/core/request.php', true);
+    request.onreadystatechange = () => {
+        // In local files, status is 0 upon success in Mozilla Firefox
+        if (request.readyState === XMLHttpRequest.DONE) {
+            event.target.parentNode.style.display = "none";
+            event.target.parentNode.parentNode.style.display = "none";
+        }
+    };
+    request.send(data);
+}
+</script>

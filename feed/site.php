@@ -141,24 +141,6 @@ function fetch_comment($result)
                         </div>
                     </div>", $img, $row["name"], $row["user_id_1"]);
                     }
-                    $request = $mysqli->execute_query("SELECT Request.user_id_1, User.name from Request INNER JOIN User ON Request.user_id_1 = User.user_id WHERE Request.user_id_2 = ?",[$_SESSION["user_id"]]);
-                    foreach ($request as $res) {
-                        if(file_exists("../img/user_profile_pictures/".$res["user_id_1"].".webp")){
-                            $img=$res["user_id_1"];
-                        }
-                        else{
-                            $img="default";
-                        }
-                        printf("<div class='friend_block'>
-                        <img src='../img/user_profile_pictures/%s.webp'>
-                        <div>
-                            <b>%s</b>
-                            <br>
-                            <i>@%s</i>
-                            <button onclick='send_friends(event)'>Accepter</button>
-                        </div>
-                        </div>", $img, $res["name"], $res["user_id_1"]);
-                    }
                     $request = $mysqli->execute_query("SELECT Request.user_id_1, User.name, Request.user_id_2 from Request INNER JOIN User ON Request.user_id_2 = User.user_id WHERE Request.user_id_1 = ?",[$_SESSION["user_id"]]);
                     foreach ($request as $res) {
                         if(file_exists("../img/user_profile_pictures/".$res["user_id_2"].".webp")){
