@@ -1,4 +1,4 @@
-/* - - - - - - - - - - - - - - - - - - - - Global variable - - - - - - - - - - - - - - - - - - - - */
+/* - - - - - - - - - - - - - - - - - - - - Global variables - - - - - - - - - - - - - - - - - - - - */
 
 :root {
     --lama_orange:#ffa600;
@@ -8,21 +8,28 @@
     --bg_color:#000000;
 }
 
+/* - - - - - - - - - - - - - - - - - - - - HTML Global Elements - - - - - - - - - - - - - - - - - - - - */
+
 html, body{
     height: 100%;
 }
+
 body{
     background-color: var(--bg_color);
     margin: 0px;
     display: flex;
     flex-direction: column;
 }
-#div_main{
+
+/* - - - - - - - - - - - - - - - - - - - - Main - - - - - - - - - - - - - - - - - - - - */
+
+#div_main {
     height: 200px;
     flex: 2;
     display: flex; 
 }
-.panel{
+
+.panel {
     border-radius: 20px;
     box-shadow: var(--main_divs_shadow) -3px -3px 20px;
     margin:5px;
@@ -30,10 +37,11 @@ body{
 
 /* - - - - - - - - - - - - - - - - - - - - Profile panel  - - - - - - - - - - - - - - - - - - - - */
 
-#div_profile{
+#div_profile {
     width: 15%;
     text-align: center;
 }
+
 #user_pic {
     width: 50%;
     height: 50%;
@@ -41,12 +49,14 @@ body{
     margin: 10px;
     border-radius: 10%;
 }
+
 #user_name {
     font-style: bold;
     font-size: 20px;
     margin-top: 5%;
     color: var(--police_font);
 }
+
 #user_id {
     font-style: italic;
     color: var(--user_id_font);
@@ -74,6 +84,7 @@ body{
     flex: 2;
     padding: 10px;
 }
+
 #postlist{
     height: 100%;
     overflow-y: scroll;
@@ -81,6 +92,7 @@ body{
     padding-right: 10px;
     border-radius: 10px;
 }
+
 .post_block {
     background-color: white;
     box-shadow: var(--main_divs_shadow) 1px 1px 5px;
@@ -90,6 +102,7 @@ body{
     text-align: justify;
     color:black;
 }
+
 .post_block_user_info>img {
     width: 10%;
     height: 10%;
@@ -98,17 +111,21 @@ body{
     margin-right: 3%;
     float: left;
 }
+
 .post_block_user_info {
     display: inline-block;
 }
+
 .post_block_user_info>i {
     font-size: 60%;
     color: rgb(114, 114, 114);
     max-height: 100%;
 }
+
 .post_block_user_info>button{
     float: right;
 }
+
 .post_block_text{
     white-space: pre-line;
     width: 100%;
