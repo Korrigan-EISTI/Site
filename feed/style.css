@@ -1,4 +1,4 @@
-/* - - - - - - - - - - - - - - - - - - - - Global variables - - - - - - - - - - - - - - - - - - - - */
+/* - - - - - - - - - - - - - - - - - - - - Global - - - - - - - - - - - - - - - - - - - - */
 
 :root {
     --lama_orange:#ffa600;
@@ -8,10 +8,9 @@
     --bg_color:#000000;
 }
 
-/* - - - - - - - - - - - - - - - - - - - - HTML Global Elements - - - - - - - - - - - - - - - - - - - - */
-
 html, body{
     height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body{
