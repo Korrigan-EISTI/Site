@@ -14,7 +14,7 @@ function change_theme() {
     var rootStyles = getComputedStyle(root);
 
     if (rootStyles.getPropertyValue('--bg_color') == '#000000') {
-        root.style.setProperty('--bg_color', '#feffec');
+        root.style.setProperty('--bg_color', '#FFF7ED');
         root.style.setProperty('--police_font', '#000000');
         root.style.setProperty('--user_id_font', '#b5b5b5');
         root.style.setProperty('--shadow', '#00000020');
