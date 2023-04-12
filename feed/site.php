@@ -91,6 +91,12 @@
 
         <div id="div_feed" class="panel">
             <div id="postlist">
+                <div id='NULL' class='post_block'>
+                    <div class='comment_text'>
+                        <textarea rows='5' placeholder='✎...'  maxlength='200'></textarea>
+                        <img src='../img/send_icon.webp' class='comment_send_button' onclick='send(event)'/>
+                    </div>
+                </div>
                 <?php
                 $mysqli = new mysqli("localhost", "lama", "lama_admin", "lama");
                 $result = $mysqli->query("SELECT Post.user_id,Post.date,Post.message,Post.id,User.name FROM Post NATURAL JOIN User WHERE parent_id IS NULL");

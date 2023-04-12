@@ -30,9 +30,12 @@ function toggle_reply(event) {
     toggle_display(event.target.parentNode.children[3]);
 }
 
-function send(event) {
+function send_reply(event){
     toggle_display(event.target.parentNode);
-    if (event.target.parentNode.children[0].value.trim() == "") {
+    send(event);
+}
+function send(event){
+    if(event.target.parentNode.children[0].value.trim()==""){
         return
     }
     var post_block = event.target.parentNode.parentNode;
@@ -49,11 +52,18 @@ function send(event) {
             const status = request.status;
             if (status === 0 || (status >= 200 && status < 400)) {
                 // The request has been completed successfully
-                var indent;
-                if (!(post_block.nextSibling && post_block.nextSibling.classList.contains("indent"))) {
-                    post_block.insertAdjacentHTML('afterend', "<div class='indent'></div>");
+                var parent;
+                if(post_block.id == 'NULL')
+                {
+                    parent = post_block.parentNode;
                 }
-                post_block.nextSibling.insertAdjacentHTML('beforeend', `<div id='${request.responseText}' class='post_block'>
+                else{
+                    if(!(post_block.nextSibling && post_block.nextSibling.classList.contains("indent"))){
+                        post_block.insertAdjacentHTML('afterend',"<div class='indent'></div>");
+                    }
+                    parent=post_block.nextSibling;
+                }
+                parent.insertAdjacentHTML('beforeend', `<div id='${request.responseText}' class='post_block'>
                     <div class='post_block_user_info'>
                         <img src='/img/user_profile_pictures/${document.getElementById("img").innerHTML}.webp'>
                         <b>${escapeHtml(document.getElementById("name").innerHTML)}</b>
