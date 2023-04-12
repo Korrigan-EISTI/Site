@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Login</title>
-    </head>
-    <body>
-        <?php
+
+<head>
+    <title>Login</title>
+</head>
+
+<body>
+    <?php
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         $mysqli = new mysqli("localhost", "lama", "lama_admin", "lama");
         $result = $mysqli->execute_query("SELECT user_id FROM user WHERE ? = user.email",[$_POST["email"]]);
@@ -27,6 +29,7 @@
                 document.getElementById("form").submit();
             </script>';
         }
-        ?>
-    </body>
+    ?>
+</body>
+
 </html>
