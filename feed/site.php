@@ -18,9 +18,7 @@
                     <br>
                     <i>@%s</i>
                 </div>
-                <div class='post_block_text'>
-                    %s
-                </div>
+                <div class='post_block_text'>%s</div>
                 <button class='comment_reply_button' onclick='toggle_reply(event)'>↪ Répondre</button>
                 <div class='comment_text' style='display:none'>
                     <textarea rows='5' placeholder='✎...' maxlength='65536'></textarea>

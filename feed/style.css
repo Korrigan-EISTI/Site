@@ -130,8 +130,10 @@ body{
     white-space: pre-line;
     width: 100%;
     word-wrap: anywhere;
+    max-height: 10em;
+    overflow-y: scroll;
+    margin-top: 10px;
 }
-
 .indent{
     margin-left: 50px;
 }
@@ -162,6 +164,7 @@ body{
     resize:none;
 	width: 100%;
     resize: vertical;
+    font-family: serif;
 }
 
 .comment_send_button {
