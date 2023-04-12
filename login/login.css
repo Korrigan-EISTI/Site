@@ -1,0 +1,76 @@
+/* - - - - - - - - - - - - - - - - - - - - Global variable - - - - - - - - - - - - - - - - - - - - */
+
+:root {
+    --lama_orange:#ffa600;
+    --police_font:#ffffff;
+    --user_id_font:#d3d3d3;
+    --main_divs_shadow:#b9b9b9bb;
+    --bg_color:#000000;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - login.php  - - - - - - - - - - - - - - - - - - - - */
+
+body{
+    background-color: black;
+    font-family: Sans-serif;
+    font-size: 90%;
+}
+
+#d1{
+    text-align: center;
+    margin-top: 3%;
+}
+
+#d2{
+    border-radius: 10%;
+    height: 260px;
+    width: 350px;
+    background-color: white;
+    padding-top: 4%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#lama_logo {
+    width: 10%;
+    height: 10%;
+}
+
+#login_fields {
+    display: inline;
+}
+
+#login_fields div {
+    text-align: left;
+    margin-left: 10%;
+    margin-bottom: 5%;
+}
+
+#login_fields img {
+    width: 12%;
+    height: 12%;
+    vertical-align: middle;
+}
+
+#login_fields input {
+    width: 65%;
+    margin-left: 7%;
+    vertical-align: middle;
+}
+
+#connexion_button {
+    margin-top: 6%;
+    margin-bottom: 7%;
+    background-color: var(--lama_orange);
+	border-radius:40px;
+    border:none;
+	cursor:pointer;
+	padding:10px 50px;
+    font-size: 110%;
+    border: #ffffff 2px solid;
+}
+
+#connexion_button:hover {
+    border: #000000 2px solid;
+}
