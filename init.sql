@@ -16,7 +16,7 @@ CREATE TABLE Post (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   user_id varchar(50) NOT NULL,
   `date` DATE NOT NULL,
-  message TEXT,
+  message varchar(200),
   parent_id INT,
   FOREIGN KEY (user_id) REFERENCES User(user_id)
 );
@@ -37,18 +37,27 @@ CREATE TABLE Request(
   FOREIGN KEY (user_id_2) REFERENCES User(user_id)
 );
 
-INSERT INTO `User` (user_id,name,email,password) VALUES ("lama","lama","lama@lama.com","$2y$10$pIP4MJC9PqRhxJkG8TlnPeG2wJCL/6793xByLlJa3.rNXAHaITPvm");
-INSERT INTO `User` (user_id,name,email,password) VALUES ("car_lover","Clement","car_lover@car_lover.com","$2y$10$knCM7t3NFH36AFApMpOfoe5jzs2M7guhQ/Aac8HBt/aElmxjljwy2");
-INSERT INTO `User` (user_id,name,email,password) VALUES ("code_master","Joan","code_master@code_master.com","$2y$10$f0vJqHJZnge0hz/KnmNiFeCvPCgR8xAdePW2PConubZnuy8JWCID2");
-INSERT INTO `User` (user_id,name,email,password) VALUES ("fabinou69","FabinouLeLapinou","fabinou69@fabinou69.com","$2y$10$YEcmk8tz5SU6LYkPpEBkd.s3d1/nIVi/g6iZmVDmKztgkIqDhm5f.");
-INSERT INTO `User` (user_id,name,email,password) VALUES ("ugo","Ugo","ugo@ugo.com","$2y$10$BiGyhD1ghTx2K/aiEBqwVOHWQQ1YOdS1gk96obqRVBA9.VY8A8ij6");
-INSERT INTO `User` (user_id,name,email,password) VALUES ("sinol", "Louis-Alexandre", "la.laguet95@gmail.com", "$2y$10$r.BAWR4gHJWztB5DuUNVJOUCZ1vuY6t6scLpaaV.tzqUxXs//gwPu");
-INSERT INTO `User` (user_id,name,email,password) VALUES ("OUI", "OUI", "OUI", "$2y$10$YFSfptdNrEoLxZi2HRFpjex5ZNDhE3zFG6nGBYlFpOw/l9.j5rQ.a");
-INSERT INTO `Post` (user_id,`date`,message) VALUES ("lama",CAST( CURDATE() AS Date ),"hello world");
-INSERT INTO `Post` (user_id,`date`,message) VALUES ("lama",CAST( CURDATE() AS Date ),"hello world");
-INSERT INTO `Post` (user_id,`date`,message,parent_id) VALUES ("lama",CAST( CURDATE() AS Date ),"hello world",1);
-INSERT INTO `Post` (user_id,`date`,message,parent_id) VALUES ("lama",CAST( CURDATE() AS Date ),"hello world",2);
-INSERT INTO `Post` (user_id, `date`, message, parent_id) VALUES ("ugo", CAST(CURDATE()AS Date), "'jaime la bite', Jeanne 2023",1);
-INSERT INTO `Friends` (user_id_1, user_id_2) VALUES ("fabinou69", "lama");
+INSERT INTO `User` (user_id,name,email,password) VALUES ("lama","lama","lama@gmail.com","lama");
+INSERT INTO `User` (user_id,name,email,password) VALUES ("car_lover","Clement","car_lover@gmail.com","car_lover");
+INSERT INTO `User` (user_id,name,email,password) VALUES ("code_master","Joan Legrand","code_master@gmail.com","code_master");
+INSERT INTO `User` (user_id,name,email,password) VALUES ("durag_man", "Adam le Motard", "durag_man@gmail.com", "durag_man");
+INSERT INTO `User` (user_id,name,email,password) VALUES ("fabinou69","Fabinou le Lapinou","fabinou69@gmail.com","fabinou69");
+INSERT INTO `User` (user_id,name,email,password) VALUES ("fuck_liza", "Aniss Hassan", "fuck_liza@gmail.com", "fuck_liza");
+INSERT INTO `User` (user_id,name,email,password) VALUES ("jordan_goatier", "Jordan AKA 'Le Goat'", "jordan_goatier@gmail.com", "jordan_goatier");
+INSERT INTO `User` (user_id,name,email,password) VALUES ("mr_president", "Lillian FELLOUH", "mr_president@gmail.com", "mr_president");
+INSERT INTO `User` (user_id,name,email,password) VALUES ("sinol", "Louis-Alexandre", "la.laguet95@gmail.com", "sinol");
+INSERT INTO `User` (user_id,name,email,password) VALUES ("sujeebioss", "SujeeBioss", "sujeebioss@gmail.com", "sujeebioss");
+INSERT INTO `User` (user_id,name,email,password) VALUES ("ugo","Ugo","ugo@gmail.com","ugo");
+INSERT INTO `User` (user_id,name,email,password) VALUES ("unicorn_princess123", "OUI", "unicorn_princess123@gmail.com", "unicorn_princess123");
+INSERT INTO `Post` (user_id,`date`,message) VALUES ("lama",CAST( CURDATE() AS Date ),"Ceci est le premier post de ce magnifique site.");
+INSERT INTO `Friends` (user_id_1, user_id_2) VALUES ("lama", "car_lover");
 INSERT INTO `Friends` (user_id_1, user_id_2) VALUES ("lama", "code_master");
+INSERT INTO `Friends` (user_id_1, user_id_2) VALUES ("lama", "durag_man");
+INSERT INTO `Friends` (user_id_1, user_id_2) VALUES ("lama", "fabinou69");
+INSERT INTO `Friends` (user_id_1, user_id_2) VALUES ("lama", "fuck_liza");
+INSERT INTO `Friends` (user_id_1, user_id_2) VALUES ("lama", "jordan_goatier");
+INSERT INTO `Friends` (user_id_1, user_id_2) VALUES ("lama", "mr_president");
+INSERT INTO `Friends` (user_id_1, user_id_2) VALUES ("lama", "sinol");
+INSERT INTO `Friends` (user_id_1, user_id_2) VALUES ("lama", "sujeebioss");
 INSERT INTO `Friends` (user_id_1, user_id_2) VALUES ("lama", "ugo");
+INSERT INTO `Friends` (user_id_1, user_id_2) VALUES ("lama", "unicorn_princess123");
