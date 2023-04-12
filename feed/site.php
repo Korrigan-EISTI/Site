@@ -1,41 +1,40 @@
 <?php
-session_start();
-function fetch_comment($result)
-{
-    global $mysqli;
-    while ($row = $result->fetch_assoc()) {
-        if(file_exists("'../img/user_profile_pictures/".$row["user_id"].".webp")){
-            $img=$row["user_id"];
+    session_start();
+    function fetch_comment($result)
+    {
+        global $mysqli;
+        while ($row = $result->fetch_assoc()) {
+            if(file_exists("'../img/user_profile_pictures/".$row["user_id"].".webp")){
+                $img=$row["user_id"];
+            }
+            else{
+                $img="default";
+            }
+            printf("
+            <div id='%d' class='post_block'>
+                <div class='post_block_user_info'>
+                    <img src='../img/user_profile_pictures/%s.webp'>
+                    <b>%s</b>
+                    <br>
+                    <i>@%s</i>
+                </div>
+                <div class='post_block_text'>
+                    %s
+                </div>
+                <button class='comment_reply_button' onclick='toggle_reply(event)'>↪ Répondre</button>
+                <div class='comment_text' style='display:none'>
+                    <textarea rows='5' placeholder='✎...'  maxlength='200'></textarea>
+                    <img src='../img/send_icon.webp' class='comment_send_button' onclick='send(event)'/>
+                </div>
+            </div>",$row["id"],$img,htmlspecialchars($row["name"]),htmlspecialchars($row["user_id"]),htmlspecialchars($row["message"]));
+            $comments = $mysqli->execute_query("SELECT Post.user_id,Post.date,Post.message,Post.id,User.name FROM Post NATURAL JOIN User WHERE parent_id = ?",[$row["id"]]);
+            
+            echo("<div class='indent'>");
+            fetch_comment($comments);
+            echo("</div>");
         }
-        else{
-            $img="default";
-        }
-        printf("
-        <div id='%d' class='post_block'>
-            <div class='post_block_user_info'>
-                <img src='../img/user_profile_pictures/%s.webp'>
-                <b>%s</b>
-                <br>
-                <i>@%s</i>
-            </div>
-            <div class='post_block_text'>
-                %s
-            </div>
-            <button class='comment_reply_button' onclick='toggle_reply(event)'>↪ Répondre</button>
-            <div class='comment_text' style='display:none'>
-                <textarea rows='5' placeholder='✎...'  maxlength='200'></textarea>
-                <img src='../img/send_icon.webp' class='comment_send_button' onclick='send(event)'/>
-            </div>
-        </div>",$row["id"],$img,htmlspecialchars($row["name"]),htmlspecialchars($row["user_id"]),htmlspecialchars($row["message"]));
-        $comments = $mysqli->execute_query("SELECT Post.user_id,Post.date,Post.message,Post.id,User.name FROM Post NATURAL JOIN User WHERE parent_id = ?",[$row["id"]]);
-        
-        echo("<div class='indent'>");
-        fetch_comment($comments);
-        echo("</div>");
     }
-}
 ?>
-
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -77,10 +76,10 @@ function fetch_comment($result)
                         $img="default";
                     }
                     printf("
-                        <img id='user_pic' src='../img/user_profile_pictures/%s.webp' onclick='change_pp(event)'>
+                        <img id='user_pic' src='../img/user_profile_pictures/%s.webp'>
                         <p id='user_name'>%s</p>
                         <p id='user_id'>@%s</p><br>", $img, $_SESSION["name"], $_SESSION["user_id"]);
-                ?>    
+                ?>
             </div>
 
             <div id="profile_links">
@@ -89,7 +88,7 @@ function fetch_comment($result)
                 <a href="#" onclick="change_theme();"> <img src="../img/change_theme_icon.webp" \> </a><br>
             </div>
         </div>
-        
+
         <div id="div_feed" class="panel">
             <div id="postlist">
                 <?php
@@ -99,12 +98,13 @@ function fetch_comment($result)
                 ?>
             </div>
         </div>
-        
+
         <div id="div_friendlist" class="panel">
             <input type="text" id="search_bar" placeholder="Rechercher un utilisateur"></input>
             <div id="search_results"></div>
-            <br><div id="friendlist">
-                
+            <br>
+            <div id="friendlist">
+
                 <div id="friends">
                     <?php
                     $result = $mysqli->execute_query("SELECT Friends.user_id_1, User.name, Friends.user_id_2 from Friends INNER JOIN User ON Friends.user_id_2 = User.user_id WHERE Friends.user_id_1 = ?",[$_SESSION["user_id"]]);
@@ -166,16 +166,18 @@ function fetch_comment($result)
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
-        $(document).ready(function(){
-            $("#search_bar").keyup(function(){
+        $(document).ready(function () {
+            $("#search_bar").keyup(function () {
                 var input = $(this).val();
-                if (input != ""){
+                if (input != "") {
                     $.ajax({
-                        url:"../core/livesearch.php",
+                        url: "../core/livesearch.php",
                         method: "post",
-                        data:{input:input},
+                        data: {
+                            input: input
+                        },
 
-                        success:function(data){
+                        success: function (data) {
                             $("#search_results").html(data);
                         }
                     });
@@ -183,11 +185,12 @@ function fetch_comment($result)
                     $("#search_results").css("flex-direction", "column");
                     $("#search_results").css("gap", "1%");
                     $("#search_results").css("text-align", "left");
-                }else{
+                } else {
                     $("#search_results").css("display", "none");
                 }
             });
         });
     </script>
 </body>
+
 </html>

@@ -8,38 +8,39 @@ const toggle_display = target => target.style.display = (target.style.display ==
 const escapeHtml = (unsafe) => {
     return unsafe.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;');
 }
-function change_theme() {
-    var root = document.querySelector(':root') ;
-    var rootStyles = getComputedStyle(root) ;
 
-    if(rootStyles.getPropertyValue('--bg_color') == '#000000') {
-        root.style.setProperty('--bg_color','#feffec');
-        root.style.setProperty('--police_font','#000000');
-        root.style.setProperty('--user_id_font','#b5b5b5');
-        root.style.setProperty('--shadow','#00000020');
-    }
-    else {
-        root.style.setProperty('--bg_color','#000000');
-        root.style.setProperty('--police_font','#ffffff');
-        root.style.setProperty('--user_id_font','#d3d3d3');
-        root.style.setProperty('--shadow','#ffffff40');
+function change_theme() {
+    var root = document.querySelector(':root');
+    var rootStyles = getComputedStyle(root);
+
+    if (rootStyles.getPropertyValue('--bg_color') == '#000000') {
+        root.style.setProperty('--bg_color', '#feffec');
+        root.style.setProperty('--police_font', '#000000');
+        root.style.setProperty('--user_id_font', '#b5b5b5');
+        root.style.setProperty('--shadow', '#00000020');
+    } else {
+        root.style.setProperty('--bg_color', '#000000');
+        root.style.setProperty('--police_font', '#ffffff');
+        root.style.setProperty('--user_id_font', '#d3d3d3');
+        root.style.setProperty('--shadow', '#ffffff40');
     }
 }
-function toggle_reply(event){
+
+function toggle_reply(event) {
     toggle_display(event.target.parentNode.children[3]);
 }
 
-function send(event){
+function send(event) {
     toggle_display(event.target.parentNode);
-    if(event.target.parentNode.children[0].value.trim()==""){
+    if (event.target.parentNode.children[0].value.trim() == "") {
         return
     }
     var post_block = event.target.parentNode.parentNode;
     let request = new XMLHttpRequest();
     // 2. Le configure : GET-request pour l'URL /article/.../load
     var data = new FormData();
-    data.append("msg" , event.target.parentNode.children[0].value);
-    data.append("parent_id",post_block.id);
+    data.append("msg", event.target.parentNode.children[0].value);
+    data.append("parent_id", post_block.id);
     // 3. Envoyer la requête sur le réseau
     request.open("POST", '/core/post.php', true);
     request.onreadystatechange = () => {
@@ -49,8 +50,8 @@ function send(event){
             if (status === 0 || (status >= 200 && status < 400)) {
                 // The request has been completed successfully
                 var indent;
-                if(!(post_block.nextSibling && post_block.nextSibling.classList.contains("indent"))){
-                    post_block.insertAdjacentHTML('afterend',"<div class='indent'></div>");
+                if (!(post_block.nextSibling && post_block.nextSibling.classList.contains("indent"))) {
+                    post_block.insertAdjacentHTML('afterend', "<div class='indent'></div>");
                 }
                 post_block.nextSibling.insertAdjacentHTML('beforeend', `<div id='${request.responseText}' class='post_block'>
                     <div class='post_block_user_info'>
@@ -68,16 +69,15 @@ function send(event){
                         <img src='../img/send_icon.webp' class='comment_send_button' onclick='send(event)'/>
                     </div>
                 </div>`);
-                event.target.parentNode.children[0].value="";
+                event.target.parentNode.children[0].value = "";
             }
         }
     };
     request.send(data);
 }
-window.onload = (event) => {
-};
+window.onload = (event) => {};
 
-function send_friends(event){
+function send_friends(event) {
     let request = new XMLHttpRequest();
     var data = new FormData();
     let user_id_2 = event.target.parentNode.children[2].innerHTML.split('@')[1];
@@ -92,4 +92,3 @@ function send_friends(event){
     };
     request.send(data);
 }
-
