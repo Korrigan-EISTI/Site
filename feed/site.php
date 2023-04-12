@@ -77,7 +77,7 @@ function fetch_comment($result)
                         $img="default";
                     }
                     printf("
-                        <img id='user_pic' src='../img/user_profile_pictures/%s.webp'>
+                        <img id='user_pic' src='../img/user_profile_pictures/%s.webp' onclick='change_pp(event)'>
                         <p id='user_name'>%s</p>
                         <p id='user_id'>@%s</p><br>", $img, $_SESSION["name"], $_SESSION["user_id"]);
                 ?>    

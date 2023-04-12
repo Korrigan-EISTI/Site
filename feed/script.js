@@ -92,3 +92,4 @@ function send_friends(event){
     };
     request.send(data);
 }
+
