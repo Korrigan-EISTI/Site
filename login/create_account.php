@@ -28,7 +28,7 @@
         <img id="lama_logo" src="../img/lama_logo.webp">
     </div>
     <div id="main_div">
-        <h1>Création de compte</h1>
+        <h2>Création de compte</h2>
         <form onsubmit="return validate()" action="create_account_server.php" method="POST">
             <table>
                 <tr>

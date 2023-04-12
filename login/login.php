@@ -20,12 +20,20 @@
         <form action="login_server.php" method="POST">
             <div id="login_fields">
                 <div>
-                    <img src="../img/user_profile_pictures/default.webp">
-                    <input name="user_id" id="user_id" placeholder="user id">
+                    <div>
+                        <img src="../img/user_profile_pictures/default.webp">
+                    </div>
+                    <div class="p_and_input">
+                        <p>Identifiant</p>
+                        <input name="user_id" id="user_id">
+                    </div>
                 </div>
                 <div>
                     <img src="../img/password_icon.webp">
-                    <input type="password" name="password">
+                    <div class="p_and_input">
+                        <p>Mot de passe</p>
+                        <input type="password" name="password">
+                    </div>
                 </div>
             </div>
             <input id="connexion_button" type="submit" value="Connexion">
@@ -36,17 +44,17 @@
     <?php
         if(isset($_POST["login"]))
         {
-            echo "<p style='background-color:red'>Identifiant ou mot de passe erroné.</p>";
+            echo "<p style='background-color:red'>⚠ Identifiant ou mot de passe erroné ⚠</p>";
         }
         if(isset($_POST["created"]))
         {
             if($_POST["created"])
             {
-                echo "<p style='background-color:green'>Compte créé avec succès.</p>";
+                echo "<p style='background-color:green'>Compte créé avec succès ☑</p>";
             }
             else
             {
-                echo "<p style='background-color:orange'>Compte déjà existant.</p>";
+                echo "<p style='background-color:orange'>⚠ Compte déjà existant ⚠</p>";
             }
         }
     ?>
