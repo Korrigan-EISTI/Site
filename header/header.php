@@ -9,5 +9,4 @@
             echo "<a href='/login/login.php' id='connexion_button'>Déconnexion</a>";
         }
     ?>
-    
 </header>
