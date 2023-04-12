@@ -4,7 +4,7 @@
     {
         global $mysqli;
         while ($row = $result->fetch_assoc()) {
-            if(file_exists("'../img/user_profile_pictures/".$row["user_id"].".webp")){
+            if(file_exists("../img/user_profile_pictures/".$row["user_id"].".webp")){
                 $img=$row["user_id"];
             }
             else{
@@ -26,7 +26,7 @@
                     <textarea rows='5' placeholder='✎...'  maxlength='200'></textarea>
                     <img src='../img/send_icon.webp' class='comment_send_button' onclick='send(event)'/>
                 </div>
-            </div>",$row["id"],$img,htmlspecialchars($row["name"]),htmlspecialchars($row["user_id"]),htmlspecialchars($row["message"]));
+            </div>",$row["user_id"],$img,htmlspecialchars($row["name"]),htmlspecialchars($row["user_id"]),htmlspecialchars($row["message"]));
             $comments = $mysqli->execute_query("SELECT Post.user_id,Post.date,Post.message,Post.id,User.name FROM Post NATURAL JOIN User WHERE parent_id = ?",[$row["id"]]);
             
             echo("<div class='indent'>");
