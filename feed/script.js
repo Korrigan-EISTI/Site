@@ -73,7 +73,7 @@ function send(event){
                     <div class='post_block_text'>${escapeHtml(event.target.parentNode.children[0].value)}</div>
                     <button class='comment_reply_button' onclick='toggle_reply(event)'>↪ Répondre</button>
                     <div class='comment_text' style='display:none'>
-                        <textarea rows='5' placeholder='✎...' maxlength='65536'></textarea>
+                        <textarea rows='5' placeholder='✎...' maxlength='65000'></textarea>
                         <img src='../img/send_icon.webp' class='comment_send_button' onclick='send(event)'/>
                     </div>
                 </div>`);
