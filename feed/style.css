@@ -212,7 +212,12 @@ body{
     height: 100%;
 }
 .friend_block{
+    padding-top: 5px;
+    margin-left: 10px;
+    display: flex;
     margin-bottom: 15px;
+    flex-direction: row;
+    gap: 5%;
 }
 
 #friendlist img {
@@ -243,6 +248,11 @@ body{
 
 #search_results i {
     font-size: 12px;
+}
+
+.button_add{
+    margin-left: 25px;
+    align-self: center;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - Scrollbar  - - - - - - - - - - - - - - - - - - - - */

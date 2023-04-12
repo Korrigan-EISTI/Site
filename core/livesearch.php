@@ -40,8 +40,12 @@
         request.onreadystatechange = () => {
             // In local files, status is 0 upon success in Mozilla Firefox
             if (request.readyState === XMLHttpRequest.DONE) {
-                event.target.parentNode.style.display = "none";
-                event.target.parentNode.parentNode.style.display = "none";
+                if (request.responseText != "amis"){
+                    event.target.parentNode.style.display = "none";
+                    event.target.parentNode.parentNode.style.display = "none";
+                }else{
+                    alert("Vous êtes déjà amis avec " + user_id_2);
+                }
             }
         };
         request.send(data);
