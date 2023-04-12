@@ -21,7 +21,7 @@
             <div id="login_fields">
                 <div>
                     <img src="../img/user_profile_pictures/default.webp">
-                    <input name="user_id" id="user_id">
+                    <input name="user_id" id="user_id" placeholder="user id">
                 </div>
                 <div>
                     <img src="../img/password_icon.webp">

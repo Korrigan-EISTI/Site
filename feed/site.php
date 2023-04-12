@@ -23,7 +23,7 @@
                 </div>
                 <button class='comment_reply_button' onclick='toggle_reply(event)'>↪ Répondre</button>
                 <div class='comment_text' style='display:none'>
-                    <textarea rows='5' placeholder='✎...'  maxlength='200'></textarea>
+                    <textarea rows='5' placeholder='✎...' maxlength='65536'></textarea>
                     <img src='../img/send_icon.webp' class='comment_send_button' onclick='send(event)'/>
                 </div>
             </div>",$row["user_id"],$img,htmlspecialchars($row["name"]),htmlspecialchars($row["user_id"]),htmlspecialchars($row["message"]));
@@ -93,7 +93,7 @@
             <div id="postlist">
                 <div id='NULL' class='post_block'>
                     <div class='comment_text'>
-                        <textarea rows='5' placeholder='✎...'  maxlength='200'></textarea>
+                        <textarea rows='5' placeholder='✎...' maxlength='65536'></textarea>
                         <img src='../img/send_icon.webp' class='comment_send_button' onclick='send(event)'/>
                     </div>
                 </div>

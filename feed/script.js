@@ -75,7 +75,7 @@ function send(event){
                     </div>
                     <button class='comment_reply_button' onclick='toggle_reply(event)'>↪ Répondre</button>
                     <div class='comment_text' style='display:none'>
-                        <textarea rows='5' placeholder='✎...'></textarea>
+                        <textarea rows='5' placeholder='✎...' maxlength='65536'></textarea>
                         <img src='../img/send_icon.webp' class='comment_send_button' onclick='send(event)'/>
                     </div>
                 </div>`);
