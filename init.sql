@@ -37,18 +37,19 @@ CREATE TABLE Request(
   FOREIGN KEY (user_id_2) REFERENCES User(user_id)
 );
 
-INSERT INTO `User` (user_id,name,email,password) VALUES ("lama","lama","lama@gmail.com","lama");
-INSERT INTO `User` (user_id,name,email,password) VALUES ("car_lover","Clement","car_lover@gmail.com","car_lover");
-INSERT INTO `User` (user_id,name,email,password) VALUES ("code_master","Joan Legrand","code_master@gmail.com","code_master");
-INSERT INTO `User` (user_id,name,email,password) VALUES ("durag_man", "Adam le Motard", "durag_man@gmail.com", "durag_man");
-INSERT INTO `User` (user_id,name,email,password) VALUES ("fabinou69","Fabinou le Lapinou","fabinou69@gmail.com","fabinou69");
-INSERT INTO `User` (user_id,name,email,password) VALUES ("fuck_liza", "Aniss Hassan", "fuck_liza@gmail.com", "fuck_liza");
-INSERT INTO `User` (user_id,name,email,password) VALUES ("jordan_goatier", "Jordan AKA 'Le Goat'", "jordan_goatier@gmail.com", "jordan_goatier");
-INSERT INTO `User` (user_id,name,email,password) VALUES ("mr_president", "Lillian FELLOUH", "mr_president@gmail.com", "mr_president");
-INSERT INTO `User` (user_id,name,email,password) VALUES ("sinol", "Louis-Alexandre", "la.laguet95@gmail.com", "sinol");
-INSERT INTO `User` (user_id,name,email,password) VALUES ("sujeebioss", "SujeeBioss", "sujeebioss@gmail.com", "sujeebioss");
-INSERT INTO `User` (user_id,name,email,password) VALUES ("ugo","Ugo","ugo@gmail.com","ugo");
-INSERT INTO `User` (user_id,name,email,password) VALUES ("unicorn_princess123", "OUI", "unicorn_princess123@gmail.com", "unicorn_princess123");
+
+INSERT INTO `User` (user_id,name,email,password) VALUES ("lama","lama","lama@gmail.com","$2y$10$ycEXe8Yh6G2dmqNqO1pJt.IRFRsuaCvOcaZpi5gVWM/MJGKgaTiGS");
+INSERT INTO `User` (user_id,name,email,password) VALUES ("car_lover","Clement","car_lover@gmail.com","$2y$10$Q4p1VPO1HRNp86leHs9nk.Fzv7rZFDwzHlaZ0RpK6VMFhNNcP9dA6");
+INSERT INTO `User` (user_id,name,email,password) VALUES ("code_master","Joan Legrand","code_master@gmail.com","$2y$10$iAEN10I0Lldus6GO94kYNORGEYEwj2BXF/ew1CkiROzznksLI7R/m");
+INSERT INTO `User` (user_id,name,email,password) VALUES ("durag_man", "Adam le Motard", "durag_man@gmail.com", "$2y$10$AJro5LxNjD/5F6.Iq6V5AupDSHtaw5/sVkswMbSgBy.IMPNohaGRS");
+INSERT INTO `User` (user_id,name,email,password) VALUES ("fabinou69","Fabinou le Lapinou","fabinou69@gmail.com","$2y$10$TzZVOqYeHAuP76vALijFH.8KDOKgHWMVr9VLiL1gR/ZVlv1H9f2Sy");
+INSERT INTO `User` (user_id,name,email,password) VALUES ("fuck_liza", "Aniss Hassan", "fuck_liza@gmail.com", "$2y$10$C7hPGG2bHT6fum94HueH/e7ifzRBYKOW86a.CCAeNmRt9utlnTem2");
+INSERT INTO `User` (user_id,name,email,password) VALUES ("jordan_goatier", "Jordan AKA 'Le Goat'", "jordan_goatier@gmail.com", "$2y$10$Taq9rDntjg.3LO8PvvAuAeQjMcr5F.Mlprl9EbtCCZKBQbxONsiqe");
+INSERT INTO `User` (user_id,name,email,password) VALUES ("mr_president", "Lillian FELLOUH", "mr_president@gmail.com", "$2y$10$mKn3RdYnw2hk0EXGBeHXiumz37hzOcLdQVajoQhqjEjSqPiUnOoA6");
+INSERT INTO `User` (user_id,name,email,password) VALUES ("sinol", "Louis-Alexandre", "la.laguet95@gmail.com", "$2y$10$XJaxoy8oa1bcyRD2DHx65Og.yP4BQLl3IsQv.Mf8k3nTSrCp.Nb8G");
+INSERT INTO `User` (user_id,name,email,password) VALUES ("sujeebioss", "SujeeBioss", "sujeebioss@gmail.com", "$2y$10$nztIZuQJECfQFHiVrOiUZu0ak97zQsvAm524LE8wp1W8P1bxPpo02");
+INSERT INTO `User` (user_id,name,email,password) VALUES ("ugo","Ugo","ugo@gmail.com","$2y$10$LulQRaZTHcdU7SJwGMIuAOQHWDY3R1MF7gRSYZHRTgt4Itb7pq1u2");
+INSERT INTO `User` (user_id,name,email,password) VALUES ("unicorn_princess123", "OUI", "unicorn_princess123@gmail.com", "$2y$10$f4AdR7VogeH/srK2prZrl.Nnp7Awb0PH8OXQnvRDBhzNDVHrcJSKy");
 INSERT INTO `Post` (user_id,`date`,message) VALUES ("lama",CAST( CURDATE() AS Date ),"Ceci est le premier post de ce magnifique site.");
 INSERT INTO `Friends` (user_id_1, user_id_2) VALUES ("lama", "car_lover");
 INSERT INTO `Friends` (user_id_1, user_id_2) VALUES ("lama", "code_master");

@@ -24,7 +24,7 @@
                     <textarea rows='5' placeholder='✎...' maxlength='65000'></textarea>
                     <img src='../img/send_icon.webp' class='comment_send_button' onclick='send(event)'/>
                 </div>
-            </div>",$row["user_id"],$img,htmlspecialchars($row["name"]),htmlspecialchars($row["user_id"]),htmlspecialchars($row["message"]));
+            </div>",$row["id"],$img,htmlspecialchars($row["name"]),htmlspecialchars($row["user_id"]),htmlspecialchars($row["message"]));
             $comments = $mysqli->execute_query("SELECT Post.user_id,Post.date,Post.message,Post.id,User.name FROM Post NATURAL JOIN User WHERE parent_id = ?",[$row["id"]]);
             
             echo("<div class='indent'>");
