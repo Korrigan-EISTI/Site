@@ -13,12 +13,17 @@
 <body>
     <?php include("../header/header.php"); ?>
     <div class="container">
+
         <div id="div_message" class="items">
-            <p>Messages</p>
+            <div id="message_list">
+                <div id="message">
+                    
+                </div>
+            </div>
         </div>
+
         <div id="div_friendlist" class="items">
             <div id="friendlist">
-
                 <div id="friends">
                     <?php
                         session_start();
@@ -80,6 +85,7 @@
                 </div>
             </div>
         </div>
+
     </div>
     <a href='../feed/site.php' id='back_to_main_page'>↪ Revenir à la page principale</a>
 </body>

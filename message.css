@@ -41,6 +41,26 @@ body{
 
 #div_message {
     flex-grow: 20;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+#message_list {
+    flex:2;
+    height: 100px;
+    background-color: #ffffff;
+    border: 2px solid lightgray;
+    border-radius: 15px;
+    padding: 2%;
+    width: auto;
+    text-align: left;
+}
+
+#message {
+    overflow-y: scroll;
+    height: 100%;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - Friendlist - - - - - - - - - - - - - - - - - - - - */
@@ -51,7 +71,7 @@ body{
     display: flex;
     flex-direction: column;
     text-align: center;
-    padding: 20px;
+    padding: 10px;
 }
 
 #friendlist {
@@ -71,15 +91,20 @@ body{
 }
 
 .friend_block{
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 
 #friendlist img {
-    width: 40px;
-    height: 40px;
+    margin-right: 3%;
+    width: 17%;
+    height: 17%;
     float: left;
     border-radius: 100%;
-    box-shadow: grey 1px 1px 10px;
+    box-shadow: grey 1px 1px 3px;
+}
+
+.friend_block div{
+    padding-top: 2%;
 }
 
 #friendlist i {
