@@ -1,0 +1,162 @@
+/* - - - - - - - - - - - - - - - - - - - - Global - - - - - - - - - - - - - - - - - - - - */
+
+:root {
+    --lama_orange:#ffa600;
+    --police_font:#ffffff;
+    --user_id_font:#d3d3d3;
+    --main_divs_shadow:#b9b9b9bb;
+    --bg_color:#000000;
+}
+
+html, body{
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: var(--bg_color);
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - Main Flex  - - - - - - - - - - - - - - - - - - - - */
+
+.container {
+    display: flex;
+    align-items: stretch;
+    height: 200px;
+    flex:2;
+    margin-left: 4%;
+    margin-right: 4%;
+}
+
+.items {
+    background-color: white;
+    margin: 15px;
+    border-radius: 15px;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - Message - - - - - - - - - - - - - - - - - - - - */
+
+#div_message {
+    flex-grow: 20;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+#message_list {
+    flex:2;
+    height: 100px;
+    background-color: #ffffff;
+    border: 2px solid lightgray;
+    border-radius: 15px;
+    padding: 2%;
+    width: auto;
+    text-align: left;
+}
+
+#message {
+    overflow-y: scroll;
+    height: 100%;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - Friendlist - - - - - - - - - - - - - - - - - - - - */
+
+#div_friendlist {
+    flex-grow: 1;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+}
+
+#friendlist {
+    flex:2;
+    height: 100px;
+    background-color: #ffffff;
+    border: 2px solid lightgray;
+    border-radius: 15px;
+    padding: 2%;
+    width: auto;
+    text-align: left;
+}
+
+#friends {
+    overflow-y: scroll;
+    height: 100%;
+}
+
+.friend_block{
+    margin-bottom: 25px;
+}
+
+#friendlist img {
+    margin-right: 3%;
+    width: 17%;
+    height: 17%;
+    float: left;
+    border-radius: 100%;
+    box-shadow: grey 1px 1px 3px;
+}
+
+.friend_block div{
+    padding-top: 2%;
+}
+
+#friendlist i {
+    font-size: 12px;
+}
+
+#back_to_main_page {
+	background-color: var(--lama_orange);
+	border-radius:28px;
+    border: var(--bg_color) 2px solid;
+	cursor:pointer;
+	color:var(--police_font);
+	font-size:17px;
+	padding:5px 60px;
+	text-decoration:none;
+    margin: 1%;
+    margin-right: auto;
+    float: left;
+}
+
+#back_to_main_page:hover {
+    border: var(--police_font) 2px solid;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - Scrollbar  - - - - - - - - - - - - - - - - - - - - */
+
+/*Firefox*/
+*{
+    scrollbar-width: auto;
+    scrollbar-color: var(--lama_orange) transparent;
+}
+
+/* Width */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background:transparent;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--lama_orange); 
+    border-radius: 50px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #c47f00; 
+    border-radius: 50px;
+}

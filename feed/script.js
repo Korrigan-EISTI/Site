@@ -70,10 +70,12 @@ function send(event){
                         <br>
                         <i>@${document.getElementById("user_id").innerHTML}</i>
                     </div>
-                    <div class='post_block_text'>${escapeHtml(event.target.parentNode.children[0].value)}</div>
+                    <div class='post_block_text'>
+                        ${escapeHtml(event.target.parentNode.children[0].value)}
+                    </div>
                     <button class='comment_reply_button' onclick='toggle_reply(event)'>↪ Répondre</button>
                     <div class='comment_text' style='display:none'>
-                        <textarea rows='5' placeholder='✎...' maxlength='65000'></textarea>
+                        <textarea rows='5' placeholder='✎...'></textarea>
                         <img src='../img/send_icon.webp' class='comment_send_button' onclick='send(event)'/>
                     </div>
                 </div>`);
@@ -88,14 +90,14 @@ window.onload = (event) => {};
 function send_friends(event) {
     let request = new XMLHttpRequest();
     var data = new FormData();
-    let user_id_2 = event.target.parentNode.children[2].innerHTML.split('@')[1];
+    let user_id_2 = event.target.parentNode.parentNode.children[0].children[1].children[2].innerHTML.split('@')[1];
     data.append("user_id_2", user_id_2);
-    data.append("name", event.target.parentNode.children[0].innerHTML);
+    data.append("name", event.target.parentNode.parentNode.children[0].children[1].children[0].innerHTML);
     request.open("POST", '/core/friends.php', true);
     request.onreadystatechange = () => {
         // In local files, status is 0 upon success in Mozilla Firefox
         if (request.readyState === XMLHttpRequest.DONE) {
-            event.target.remove();
+            event.target.parentNode.remove();
         }
     };
     request.send(data);

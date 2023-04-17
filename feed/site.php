@@ -46,7 +46,7 @@
     <title>Lama - Page d'accueil</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="/img/lama_icon.webp">
-    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="./script.js"></script>
     <?php
     if(file_exists("../img/user_profile_pictures/".$_SESSION["user_id"].".webp")){
         $img=$_SESSION["user_id"];
@@ -107,10 +107,11 @@
 
         <div id="div_friendlist" class="panel">
             <input type="text" id="search_bar" placeholder="Rechercher un utilisateur"></input>
-            <div id="search_results"></div>
+            <div id="search_results">
+                
+            </div>
             <br>
             <div id="friendlist">
-
                 <div id="friends">
                     <?php
                     $result = $mysqli->execute_query("SELECT Friends.user_id_1, User.name, Friends.user_id_2 from Friends INNER JOIN User ON Friends.user_id_2 = User.user_id WHERE Friends.user_id_1 = ?",[$_SESSION["user_id"]]);
@@ -155,16 +156,21 @@
                         else{
                             $img="default";
                         }
-                        printf("<div class='friend_block'>
-                        <img src='../img/user_profile_pictures/%s.webp'>
-                        <div>
-                            <b>%s</b>
-                            <br>
-                            <i>@%s</i>
-                            <button onclick='send_friends(event)'>Accepter</button>
-                        </div>
-                        </div>", $img, $res["name"], $res["user_id_2"]);
-                    }
+                        printf("<div class='added_friend_block'>
+                            <div id='livesearch_infos'>
+                                <img src='../img/user_profile_pictures/%s.webp'>
+                                <div id='added_name_and_id'>
+                                    <b>%s</b>
+                                    <br>
+                                    <i>@%s</i>
+                                </div>
+                            </div>
+                            <div id='added_buttons'>
+                                <button class='friend_button' onclick='send_friends(event)' style='color:green;'>✔</button>
+                                <button class='friend_button' onclick='' style='color:red;'>X</button>
+                            </div>
+                            </div>", $img, $res["name"], $res["user_id_2"]);
+                        }
                     ?>
                 </div>
             </div>

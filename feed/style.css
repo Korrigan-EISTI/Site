@@ -188,7 +188,7 @@ body{
 }
 
 #search_bar {
-    margin: 10px;
+    margin-bottom: 5%;
     background-color: #ffffff;
     border: 2px solid lightgray;
     border-radius: 15px;
@@ -211,14 +211,16 @@ body{
     height: 100%;
 }
 
-.friend_block{
-    margin-bottom: 25px;
+.friend_block {
+    margin-top: 2%;
+    margin-left: 3%;
+    padding-bottom: 5%;
 }
 
-#friendlist img {
+.friend_block img {
     margin-right: 3%;
-    width: 17%;
-    height: 17%;
+    width: 45px;
+    height: 45px;
     float: left;
     border-radius: 100%;
     box-shadow: grey 1px 1px 3px;
@@ -228,9 +230,11 @@ body{
     padding-top: 2%;
 }
 
-#friendlist i {
+.friend_block i {
     font-size: 12px;
 }
+
+/* - - - - - - - - - - - - - - - Livesearch - - - - - - - - - - - - - - - */
 
 #search_results{
     display: none;
@@ -239,16 +243,54 @@ body{
     border-radius: 15px;
 }
 
-#search_results img {
-    width: 40px;
-    height: 40px;
-    float: left;
-    border-radius: 100%;
-    box-shadow: grey 1px 1px 10px;
+#livesearch_infos {
+    flex: 4;
+    margin-left: 2%;
 }
 
-#search_results i {
+.added_friend_block {
+    margin-top: 3%;
+    margin-left:1%;
+    padding-bottom: 5%;
+    display: flex;
+}
+
+.added_friend_block img {
+    margin-right: 4%;
+    width: 45px;
+    height: 45px;
+    float: left;
+    border-radius: 100%;
+    box-shadow: grey 1px 1px 3px;
+}
+
+#added_name_and_id {
+    padding-top: 2%;
+}
+
+.added_friend_block i {
     font-size: 12px;
+}
+
+#added_buttons {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+.friend_button {
+	background-color: white;
+	border-radius:200%;
+    border: white 1px solid;
+	cursor:pointer;
+    font-size: 120%;
+	margin-right: 3%;
+    height: 45px;
+    width: 45px;
+}
+
+.friend_button:hover {
+    border: var(--bg_color) 1px solid;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - Scrollbar  - - - - - - - - - - - - - - - - - - - - */
