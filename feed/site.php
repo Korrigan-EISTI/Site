@@ -78,8 +78,11 @@
                     printf("
                         <img id='user_pic' src='../img/user_profile_pictures/%s.webp' onclick='afficher_input_file()'>
                         <form method='post' action='/core/inputPP.php' style='display: none;' id='formPP' enctype='multipart/form-data'>
-                            <input type='file' id='myFile' name='filename'>
-                            <input type='submit'>
+                            <div id='change_pp_div'>
+                                <label id='change_pic_label' for='myFile'>Modifier</label>    
+                                <input type='file' id='myFile' name='filename' style='visibility:hidden;'>
+                                <input id='change_pic_submit' type='submit' value='✔'>
+                            </div>
                         </form>
                         <p id='user_name'>%s</p>
                         <p id='user_id'>@%s</p><br>", $img, $_SESSION["name"], $_SESSION["user_id"]);

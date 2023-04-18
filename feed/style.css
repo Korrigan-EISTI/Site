@@ -77,6 +77,42 @@ body{
     margin-bottom: 10%;
 }
 
+/* - - - - - - - - - Change PP - - - - - - - - - */
+
+#change_pp_div {
+    display: flex;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: none;
+    margin-bottom: 15%;
+}
+
+#change_pic_label {
+    font-size: 70%;
+    color: var(--police_font);
+    border: var(--police_font) 1px solid;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+#change_pic_label:hover {
+    cursor: pointer;
+}
+
+#change_pic_submit {
+    font-size: 70%;
+    background-color: var(--bg_color);
+    color: var(--police_font);
+    border: var(--police_font) 1px solid;
+    border-radius: 100%;
+    padding: 5px;
+}
+
+#change_pic_submit:hover {
+    cursor: pointer;
+}
+
 /* - - - - - - - - - - - - - - - - - - - - Feed panel  - - - - - - - - - - - - - - - - - - - - */
 
 #div_feed{

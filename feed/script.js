@@ -129,9 +129,10 @@ function importData(event) {
 
 
 function afficher_input_file(){
-    if (document.getElementById("formPP").style.display == "block"){
+    if (document.getElementById("formPP").style.display == "block") {
         document.getElementById("formPP").style.display = "none";
-    }else{
+    }
+    else{
         document.getElementById("formPP").style.display = "block";
         document.getElementById("formPP").style.textAlign = "center";
     }
