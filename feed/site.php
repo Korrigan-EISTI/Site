@@ -167,7 +167,7 @@
                             </div>
                             <div id='added_buttons'>
                                 <button class='friend_button' onclick='send_friends(event)' style='color:green;'>✔</button>
-                                <button class='friend_button' onclick='' style='color:red;'>X</button>
+                                <button class='friend_button' onclick='send_delete(event)' style='color:red;'>X</button>
                             </div>
                             </div>", $img, $res["name"], $res["user_id_2"]);
                         }

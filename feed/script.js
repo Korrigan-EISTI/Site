@@ -102,3 +102,18 @@ function send_friends(event) {
     };
     request.send(data);
 }
+
+function send_delete(event){
+    let request = new XMLHttpRequest();
+    var data = new FormData();
+    let user_id_2 = event.target.parentNode.parentNode.children[0].children[1].children[2].innerHTML.split('@')[1];
+    data.append("user_id_2", user_id_2);
+    data.append("name", event.target.parentNode.parentNode.children[0].children[1].children[0].innerHTML);
+    request.open("POST", '/core/delete.php', true);
+    request.onreadystatechange = () =>{
+        if (request.readyState === XMLHttpRequest.DONE) {
+            event.target.parentNode.parentNode.remove();
+        }
+    };
+    request.send(data);
+}
