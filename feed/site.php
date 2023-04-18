@@ -88,7 +88,7 @@
 
             <div id="profile_links">
                 <a href="#"> <img src="../img/user_profile_pictures/default.webp" \> </a><br>
-                <a href="../message/message.php"> <img src="../img/message_icon.webp" \> </a><br>
+                <a href="../message/message.php?friend_id=ugo"> <img src="../img/message_icon.webp" \> </a><br>
                 <a href="#" onclick="change_theme();"> <img src="../img/change_theme_icon.webp" \> </a><br>
             </div>
         </div>

@@ -1,9 +1,10 @@
 -- lama.`user` definition
 SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS Post;
+DROP TABLE IF EXISTS Message;
+DROP TABLE IF EXISTS Request;
 DROP TABLE IF EXISTS Friends;
 DROP TABLE IF EXISTS User;
-DROP TABLE IF EXISTS Request;
 SET FOREIGN_KEY_CHECKS = 1;
 
 CREATE TABLE `User` (
@@ -16,7 +17,7 @@ CREATE TABLE Post (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   user_id varchar(50) NOT NULL,
   `date` DATE NOT NULL,
-  message varchar(200),
+  message TEXT,
   parent_id INT,
   FOREIGN KEY (user_id) REFERENCES User(user_id)
 );
@@ -37,6 +38,15 @@ CREATE TABLE Request(
   FOREIGN KEY (user_id_2) REFERENCES User(user_id)
 );
 
+CREATE TABLE Message (
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  user_id_1 varchar(50) NOT NULL,
+  user_id_2 varchar(50) NOT NULL,
+  `date` DATE NOT NULL,
+  message TEXT,
+  FOREIGN KEY (user_id_1) REFERENCES User(user_id),
+  FOREIGN KEY (user_id_2) REFERENCES User(user_id)
+);
 
 INSERT INTO `User` (user_id,name,email,password) VALUES ("lama","lama","lama@gmail.com","$2y$10$ycEXe8Yh6G2dmqNqO1pJt.IRFRsuaCvOcaZpi5gVWM/MJGKgaTiGS");
 INSERT INTO `User` (user_id,name,email,password) VALUES ("car_lover","Clement","car_lover@gmail.com","$2y$10$Q4p1VPO1HRNp86leHs9nk.Fzv7rZFDwzHlaZ0RpK6VMFhNNcP9dA6");
@@ -51,6 +61,10 @@ INSERT INTO `User` (user_id,name,email,password) VALUES ("sujeebioss", "SujeeBio
 INSERT INTO `User` (user_id,name,email,password) VALUES ("ugo","Ugo","ugo@gmail.com","$2y$10$LulQRaZTHcdU7SJwGMIuAOQHWDY3R1MF7gRSYZHRTgt4Itb7pq1u2");
 INSERT INTO `User` (user_id,name,email,password) VALUES ("unicorn_princess123", "OUI", "unicorn_princess123@gmail.com", "$2y$10$f4AdR7VogeH/srK2prZrl.Nnp7Awb0PH8OXQnvRDBhzNDVHrcJSKy");
 INSERT INTO `Post` (user_id,`date`,message) VALUES ("lama",CAST( CURDATE() AS Date ),"Ceci est le premier post de ce magnifique site.");
+INSERT INTO `Message` (user_id_1,user_id_2,`date`,message) VALUES ("lama","ugo",CAST( CURDATE() AS Date ),"Ceci est le premier message de ce magnifique site.");
+INSERT INTO `Message` (user_id_1,user_id_2,`date`,message) VALUES ("ugo","lama",CAST( CURDATE() AS Date ),"Ceci est le premier message de ce magnifique site.");
+INSERT INTO `Message` (user_id_1,user_id_2,`date`,message) VALUES ("lama","ugo",CAST( CURDATE() AS Date ),"Cecsdfqsdfqsdfqsdfagnifique site.");
+INSERT INTO `Message` (user_id_1,user_id_2,`date`,message) VALUES ("ugo","lama",CAST( CURDATE() AS Date ),"Cecdsqfsdfqdsfdsqfqsdfdsqfdqsfte.");
 INSERT INTO `Friends` (user_id_1, user_id_2) VALUES ("lama", "car_lover");
 INSERT INTO `Friends` (user_id_1, user_id_2) VALUES ("lama", "code_master");
 INSERT INTO `Friends` (user_id_1, user_id_2) VALUES ("lama", "durag_man");

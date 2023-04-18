@@ -17,21 +17,24 @@
         <div id="div_message" class="items">
             <div id="message_list">
                 <div id="message">
-                    <div class="message_sent">
-                        <p>Hey ! Tu vas bien ?</p>
-                    </div>
-                    <div class="message_received">
-                        <p>Super, merci ! Et toi ?</p>
-                    </div>
-                    <div class="message_sent">
-                        <p>Très bien merci.</p>
-                    </div>
-                    <div class="message_sent">
-                        <p>Leaving out the unit allows the browser to skip certain calculations on render this improving performance. If it's zero why waste the resources computing the layout based on a unit? Zero is zero regardless of unit... One would think this logic would be built into browsers by now.</p>
-                    </div>
-                    <div class="message_received">
-                        <p>Leaving out the unit allows the browser to skip certain calculations on render this improving performance. If it's zero why waste the resources computing the layout based on a unit? Zero is zero regardless of unit... One would think this logic would be built into browsers by now.</p>
-                    </div>
+                    <?php
+                    session_start();
+                    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+                    $mysqli = new mysqli("localhost", "lama", "lama_admin", "lama");
+                    $result = $mysqli->execute_query("SELECT user_id_1,`message` FROM `Message` WHERE (user_id_1 = ? AND user_id_2 = ?) OR (user_id_2 = ? AND user_id_1 = ?) ",[$_SESSION["user_id"],$_GET["friend_id"],$_SESSION["user_id"],$_GET["friend_id"]]);
+                    foreach($result as $row){
+                        if($row["user_id_1"]==$_SESSION["user_id"]){
+                            printf("<div class='message_sent'>
+                                <p>%s</p>
+                            </div>",htmlspecialchars($row["message"]));
+                        }
+                        else{
+                            printf("<div class='message_received'>
+                                <p>%s</p>
+                            </div>",htmlspecialchars($row["message"]));
+                        }
+                    }
+                    ?>
                 </div>
             </div>
             <div class='post_block'>
