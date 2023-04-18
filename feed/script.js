@@ -117,3 +117,18 @@ function send_delete(event){
     };
     request.send(data);
 }
+
+function importData(event) {
+    let photo = document.getElementById("file").files[0];
+    let data = new FormData();
+    data.append("photo", photo);
+    user_id = document.getElementById("user_id").innerHTML.split('@')[1];
+    data.append("user_id", user_id);
+    fetch('/img/user_profile_pictures/', {method: 'POST', body: data});
+}
+
+
+function afficher_input_file(){
+    document.getElementById("formPP").style.display = "block";
+    document.getElementById("formPP").style.textAlign = "center";
+}

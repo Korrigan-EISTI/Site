@@ -76,7 +76,11 @@
                         $img="default";
                     }
                     printf("
-                        <img id='user_pic' src='../img/user_profile_pictures/%s.webp'>
+                        <img id='user_pic' src='../img/user_profile_pictures/%s.webp' onclick='afficher_input_file()'>
+                        <form method='post' action='/core/inputPP.php' style='display: none;' id='formPP' enctype='multipart/form-data'>
+                            <input type='file' id='myFile' name='filename'>
+                            <input type='submit'>
+                        </form>
                         <p id='user_name'>%s</p>
                         <p id='user_id'>@%s</p><br>", $img, $_SESSION["name"], $_SESSION["user_id"]);
                 ?>
