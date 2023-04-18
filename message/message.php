@@ -17,7 +17,27 @@
         <div id="div_message" class="items">
             <div id="message_list">
                 <div id="message">
-                    
+                    <div class="message_sent">
+                        <p>Hey ! Tu vas bien ?</p>
+                    </div>
+                    <div class="message_received">
+                        <p>Super, merci ! Et toi ?</p>
+                    </div>
+                    <div class="message_sent">
+                        <p>Très bien merci.</p>
+                    </div>
+                    <div class="message_sent">
+                        <p>Leaving out the unit allows the browser to skip certain calculations on render this improving performance. If it's zero why waste the resources computing the layout based on a unit? Zero is zero regardless of unit... One would think this logic would be built into browsers by now.</p>
+                    </div>
+                    <div class="message_received">
+                        <p>Leaving out the unit allows the browser to skip certain calculations on render this improving performance. If it's zero why waste the resources computing the layout based on a unit? Zero is zero regardless of unit... One would think this logic would be built into browsers by now.</p>
+                    </div>
+                </div>
+            </div>
+            <div class='post_block'>
+                <div class='comment_text'>
+                    <textarea rows='5' placeholder='✎...'  maxlength='200'></textarea>
+                    <img src='../img/send_icon.webp' class='comment_send_button' onclick=''/>
                 </div>
             </div>
         </div>
