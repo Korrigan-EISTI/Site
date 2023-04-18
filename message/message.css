@@ -161,6 +161,8 @@ body{
     width: 45px;
     height: 45px;
     float: left;
+}
+.profile_picture{
     border-radius: 100%;
     box-shadow: grey 1px 1px 3px;
 }
