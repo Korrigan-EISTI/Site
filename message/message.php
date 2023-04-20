@@ -33,7 +33,6 @@
             <div id="friendlist">
                 <div id="friends">
                     <?php
-                        session_start();
                         $mysqli = new mysqli("localhost", "lama", "lama_admin", "lama");
                         $result = $mysqli->execute_query("SELECT User.name, Friends.user_id_2 from Friends INNER JOIN User ON Friends.user_id_2 = User.user_id WHERE Friends.user_id_1 = ?",[$_SESSION["user_id"]]);
                         foreach($result as $row){
