@@ -1,4 +1,5 @@
 <?php
+    session_start();
     function fetch_comment($result)
     {
         global $mysqli;
