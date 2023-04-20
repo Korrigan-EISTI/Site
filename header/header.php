@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(!isset($_SESSION["user_id"])){
+    header("location:/login/login.php");
+}
+?>
 <link rel="stylesheet" href="/header/header.css">
 <link rel="shortcut icon" href="/img/lama_icon.webp">
 <header>
