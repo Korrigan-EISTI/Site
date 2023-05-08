@@ -62,7 +62,12 @@ body{
     height: 100%;
     padding-right: 1%;
 }
-
+.msg{
+    border-radius: 5px;
+}
+.msg:hover{
+    background-color: lightgrey;
+}
 .message_sent p {
     background-color: var(--lama_orange);
     padding: 1.5%;
