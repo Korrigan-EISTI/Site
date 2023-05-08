@@ -1,4 +1,5 @@
 <?php
+/* Appel php permettant d'envoyer un nouveau message privé */
 session_start();
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 $mysqli = new mysqli("localhost", "lama", "lama_admin", "lama");

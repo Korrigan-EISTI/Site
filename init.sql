@@ -7,12 +7,15 @@ DROP TABLE IF EXISTS Friends;
 DROP TABLE IF EXISTS User;
 SET FOREIGN_KEY_CHECKS = 1;
 
+-- Create table User table with its id, its name, its email, its encoding password 
 CREATE TABLE `User` (
   user_id varchar(50) PRIMARY KEY NOT NULL,
   name varchar(100) NOT NULL,
   email varchar(100) NOT NULL,
   password varchar(100) NOT NULL
 );
+
+-- Create table Post with its id, its user_id, its date, its message, its parent_id (in case of a reply)
 CREATE TABLE Post (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   user_id varchar(50) NOT NULL,
@@ -22,6 +25,7 @@ CREATE TABLE Post (
   FOREIGN KEY (user_id) REFERENCES User(user_id)
 );
 
+-- Create table Friends with its user_id_1, its user_id_2
 CREATE TABLE Friends(
   user_id_1 varchar(50) NOT NULL,
   user_id_2 varchar(50) NOT NULL,
@@ -30,6 +34,7 @@ CREATE TABLE Friends(
   FOREIGN KEY (user_id_2) REFERENCES User(user_id)
 );
 
+-- Create table Friends request with its user_id_1, its user_id_2
 CREATE TABLE Request(
   user_id_1 varchar(50) NOT NULL,
   user_id_2 varchar(50) NOT NULL,
@@ -38,6 +43,7 @@ CREATE TABLE Request(
   FOREIGN KEY (user_id_2) REFERENCES User(user_id)
 );
 
+-- Create table Message with its user_id_1, its user_id_2
 CREATE TABLE Message (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   user_id_1 varchar(50) NOT NULL,
@@ -47,6 +53,8 @@ CREATE TABLE Message (
   FOREIGN KEY (user_id_1) REFERENCES User(user_id),
   FOREIGN KEY (user_id_2) REFERENCES User(user_id)
 );
+
+-- Insert Users
 INSERT INTO `User` (user_id,name,email,password) VALUES ("lama","lama","lama@gmail.com","$2y$10$ycEXe8Yh6G2dmqNqO1pJt.IRFRsuaCvOcaZpi5gVWM/MJGKgaTiGS");
 INSERT INTO `User` (user_id,name,email,password) VALUES ("car_lover","Clement","car_lover@gmail.com","$2y$10$Q4p1VPO1HRNp86leHs9nk.Fzv7rZFDwzHlaZ0RpK6VMFhNNcP9dA6");
 INSERT INTO `User` (user_id,name,email,password) VALUES ("code_master","Joan Legrand","code_master@gmail.com","$2y$10$iAEN10I0Lldus6GO94kYNORGEYEwj2BXF/ew1CkiROzznksLI7R/m");
@@ -59,11 +67,17 @@ INSERT INTO `User` (user_id,name,email,password) VALUES ("sinol", "Louis-Alexand
 INSERT INTO `User` (user_id,name,email,password) VALUES ("sujeebioss", "SujeeBioss", "sujeebioss@gmail.com", "$2y$10$nztIZuQJECfQFHiVrOiUZu0ak97zQsvAm524LE8wp1W8P1bxPpo02");
 INSERT INTO `User` (user_id,name,email,password) VALUES ("ugo","Ugo","ugo@gmail.com","$2y$10$LulQRaZTHcdU7SJwGMIuAOQHWDY3R1MF7gRSYZHRTgt4Itb7pq1u2");
 INSERT INTO `User` (user_id,name,email,password) VALUES ("unicorn_princess123", "Manel Hamane", "unicorn_princess123@gmail.com", "$2y$10$f4AdR7VogeH/srK2prZrl.Nnp7Awb0PH8OXQnvRDBhzNDVHrcJSKy");
+-- Inserts Posts
 INSERT INTO `Post` (user_id,`date`,message) VALUES ("lama",CAST( CURDATE() AS Date ),"Ceci est le premier post de ce magnifique site.");
+<<<<<<< HEAD
+-- Inserts Message
 INSERT INTO `Message` (user_id_1,user_id_2,`date`,message) VALUES ("lama","ugo",CAST( CURDATE() AS Date ),"Salut Ugo Merlier !");
+INSERT INTO `Message` (user_id_1,user_id_2,`date`,message) VALUES ("lama","ugo",CAST( CURDATE() AS Date ),"Salut Ugo MERLIER !");
+>>>>>>> d3a1c54 (Ajout des commentaires)
 INSERT INTO `Message` (user_id_1,user_id_2,`date`,message) VALUES ("ugo","lama",CAST( CURDATE() AS Date ),"Salut Lama ! Tu vas bien ?");
 INSERT INTO `Message` (user_id_1,user_id_2,`date`,message) VALUES ("lama","ugo",CAST( CURDATE() AS Date ),"Parfaitement et toi ?");
 INSERT INTO `Message` (user_id_1,user_id_2,`date`,message) VALUES ("ugo","lama",CAST( CURDATE() AS Date ),"Super !");
+-- Inserts Friends
 INSERT INTO `Friends` (user_id_1, user_id_2) VALUES ("lama", "car_lover");
 INSERT INTO `Friends` (user_id_1, user_id_2) VALUES ("lama", "code_master");
 INSERT INTO `Friends` (user_id_1, user_id_2) VALUES ("lama", "adam_moto");

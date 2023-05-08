@@ -1,9 +1,10 @@
 <?php
+    /* Appel php permettant de rechercher des amis (recherche qui se réduit au fur et à mesure de l'écriture de lettres) */
     session_start();
     $mysqli = new mysqli("localhost", "lama", "lama_admin", "lama");
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     if (isset($_POST["input"])){
-        
+        // On récupère les amis en fonction de ce que contient la variable input
         $result = $mysqli->execute_query("SELECT * from User WHERE User.name LIKE '{$_POST["input"]}%' OR User.user_id LIKE '{$_POST["input"]}%'");
         if (mysqli_num_rows($result) > 0){
             foreach ($result as $res) {
@@ -34,16 +35,20 @@
 ?>
 
 <script type="text/javascript">
+    /* Fonction AJAX permettant de faire une demande d'amis */
     function request(event) {
         let request = new XMLHttpRequest();
         var data = new FormData();
+        // On récupère l'id de l'utilisateur que l'on veut ajouter
         let user_id_2 = event.target.parentNode.parentNode.children[0].children[1].children[2].innerHTML.split('@')[1];
         data.append("user_id_2", user_id_2);
+        // On récupère le nom de l'utilisateur que l'on veut ajouter
         data.append("name", event.target.parentNode.parentNode.children[0].children[1].children[0].innerHTML);
         request.open("POST", '/core/request.php', true);
         request.onreadystatechange = () => {
             // In local files, status is 0 upon success in Mozilla Firefox
             if (request.readyState === XMLHttpRequest.DONE) {
+                // Si on est déjà amis avec l'utilisateur que l'on souhaite ajouter
                 if (request.responseText == "amis"){
                     alert("Vous êtes déjà amis avec " + user_id_2);
                 }else{

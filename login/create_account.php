@@ -11,6 +11,7 @@
 </head>
 
 <script type="text/javascript">
+    /* Fonction permettant de vérifier si la création est bonne  */
     function validate() {
         var password1 = document.getElementById("password1");
         var password2 = document.getElementById("password2");

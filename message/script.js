@@ -3,6 +3,8 @@ function click(event){
     friend=event.target.parentNode.children[2].children[2].innerHTML.split('@')[1];
     refresh();
 }
+
+/* Fonction permettant de recharger tous les messages lors de l'envoie d'un messages privé */
 function refresh(){
     let request = new XMLHttpRequest();
     var data = new FormData();
@@ -26,6 +28,8 @@ window.onload = (event) => {
         elements[i].addEventListener('click', click, false);
     }
 };
+
+/* Fonction envoyant un message */
 function send_message(event){
     if(event.target.parentNode.children[0].value.trim() == "" || friend == ""){
         return

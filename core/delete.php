@@ -1,4 +1,5 @@
 <?php
+/* Appel php appelé par le Javascript pour refuser une demande d'amis */
 session_start();
 $mysqli = new mysqli("localhost", "lama", "lama_admin", "lama");
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);

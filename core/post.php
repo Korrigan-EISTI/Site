@@ -1,4 +1,5 @@
 <?php
+/* Appel php permettant de réaliser un post et des commentaires sur le réseau social */
 session_start();
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 $mysqli = new mysqli("localhost", "lama", "lama_admin", "lama");

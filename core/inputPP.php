@@ -1,11 +1,12 @@
 <?php
+/* Appel php appelé par le Javascript pour changer de photo de profile */
 session_start();
 $target_dir = "../img/user_profile_pictures/";
 $target_file = $target_dir . basename($_SESSION["user_id"].".webp");
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-// Check if image file is a actual image or fake image
+//Si le fichier image est l'actuelle photo de profile
 if(isset($_POST["submit"])) {
   $check = getimagesize($_FILES["filename"]["tmp_name"]);
   if($check !== false) {
@@ -17,21 +18,21 @@ if(isset($_POST["submit"])) {
   }
 }
 
-// Check if file already exists
+// Si le ficheir existe déjà
 if (file_exists($target_file)) {
-  unlink($target_file);
+  unlink($target_file); // On le supprime
 }
 
-// Check file size
+// On regarde la taille du fichier
 if ($_FILES["filename"]["size"] > 500000) {
   echo "Sorry, your file is too large.";
   $uploadOk = 0;
 }
 
-// Check if $uploadOk is set to 0 by an error
+// S'il y a des erreurs
 if ($uploadOk == 0) {
   echo "Sorry, your file was not uploaded.";
-// if everything is ok, try to upload file
+// S'il n'y a pas d'erreurs
 } else {
   if (move_uploaded_file($_FILES["filename"]["tmp_name"], $target_file)) {
     echo "The file ". htmlspecialchars( basename( $_FILES["filename"]["name"])). " has been uploaded.";

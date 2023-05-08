@@ -1,5 +1,6 @@
 
 <?php
+/* Appel php pemettant d'afficher les messages privés en fonction de l'amis sléectionné */
 session_start();
 if(isset($_POST["friend_id"])){
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);

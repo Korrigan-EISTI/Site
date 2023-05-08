@@ -42,6 +42,7 @@
     </div>
 
     <?php
+        /* Appel php permettant d'afficher les érreurs de connection */
         if(isset($_POST["login"]))
         {
             echo "<p style='background-color:red'>⚠ Identifiant ou mot de passe erroné ⚠</p>";

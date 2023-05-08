@@ -1,5 +1,5 @@
 <?php
-
+/* Appel php permettant de se connecter */
 function deny()
 {
     echo '

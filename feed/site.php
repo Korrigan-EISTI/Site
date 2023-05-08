@@ -1,5 +1,6 @@
 <?php
     session_start();
+    /* Fonction récursive permettant d'afficher les commentaires d'un post et les posts */
     function fetch_comment($result)
     {
         global $mysqli;
@@ -47,7 +48,9 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="/img/lama_icon.webp">
     <script type="text/javascript" src="./script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <?php
+    /* Appel php permettant de pouvoir avoir les informations de l'utilisateur dans le Javascript */
     if(file_exists("../img/user_profile_pictures/".$_SESSION["user_id"].".webp")){
         $img=$_SESSION["user_id"];
     }
@@ -70,6 +73,7 @@
         <div id="div_profile" class="panel">
             <div id="user_info"><br>
                 <?php
+                    /* Appel php affichant les informations de l'utilisateur */
                     if(file_exists("../img/user_profile_pictures/".$_SESSION["user_id"].".webp")){
                         $img=$_SESSION["user_id"];
                     }else{
@@ -90,7 +94,6 @@
             </div>
 
             <div id="profile_links">
-                <a href="#"> <img src="../img/user_profile_pictures/default.webp" \> </a><br>
                 <a href="../message/message.php"> <img src="../img/message_icon.webp" \> </a><br>
                 <a href="#" onclick="change_theme();"> <img src="../img/change_theme_icon.webp" \> </a><br>
             </div>
@@ -105,6 +108,7 @@
                     </div>
                 </div><br>
                 <?php
+                /* Appel php affichant les posts et les commentaires entrés dans la base de données*/
                 $mysqli = new mysqli("localhost", "lama", "lama_admin", "lama");
                 $result = $mysqli->query("SELECT Post.user_id,Post.date,Post.message,Post.id,User.name FROM Post NATURAL JOIN User WHERE parent_id IS NULL");
                 fetch_comment($result);
@@ -114,13 +118,14 @@
 
         <div id="div_friendlist" class="panel">
             <input type="text" id="search_bar" placeholder="Rechercher un utilisateur"></input>
-            <div id="search_results">
+            <div id="search_results"> <!-- C'est ici que la recherche dynamique d'amis arrivera -->
                 
             </div>
             <br>
             <div id="friendlist">
                 <div id="friends">
                     <?php
+                    /* Appel php affichant tous les amis entrés dans la base de donées */
                     $result = $mysqli->execute_query("SELECT Friends.user_id_1, User.name, Friends.user_id_2 from Friends INNER JOIN User ON Friends.user_id_2 = User.user_id WHERE Friends.user_id_1 = ?",[$_SESSION["user_id"]]);
                     foreach($result as $row){
                         if(file_exists("../img/user_profile_pictures/".$row["user_id_2"].".webp")){
@@ -155,6 +160,7 @@
                         </div>
                     </div>", $img, $row["name"], $row["user_id_1"]);
                     }
+                    /* Appel php affichant toutes les demandes d'amis entrés dans la base de donées  */
                     $request = $mysqli->execute_query("SELECT Request.user_id_1, User.name, Request.user_id_2 from Request INNER JOIN User ON Request.user_id_2 = User.user_id WHERE Request.user_id_1 = ?",[$_SESSION["user_id"]]);
                     foreach ($request as $res) {
                         if(file_exists("../img/user_profile_pictures/".$res["user_id_2"].".webp")){
@@ -183,8 +189,9 @@
             </div>
         </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
     <script type="text/javascript">
+        /* Script AJAX permettant d'effectuer la recherche dynamique */
         $(document).ready(function () {
             $("#search_bar").keyup(function () {
                 var input = $(this).val();

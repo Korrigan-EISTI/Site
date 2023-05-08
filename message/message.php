@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+<!-- Page où se trouvent les messages privés -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,6 +24,7 @@
             <div class='post_block'>
                     <div class='comment_text'>
                         <textarea rows='5' placeholder='✎...'  maxlength='200'></textarea>
+                        <!-- Envoi des messages privés -->
                         <img src='../img/send_icon.webp' class='comment_send_button' onclick='send_message(event)'/>
                     </div>
                 </div>
@@ -33,6 +34,7 @@
             <div id="friendlist">
                 <div id="friends">
                     <?php
+                        /* Appel php affichant tous les amis entrés dans la base de donées avec devant eux une icone de message */
                         $mysqli = new mysqli("localhost", "lama", "lama_admin", "lama");
                         $result = $mysqli->execute_query("SELECT User.name, Friends.user_id_2 from Friends INNER JOIN User ON Friends.user_id_2 = User.user_id WHERE Friends.user_id_1 = ?",[$_SESSION["user_id"]]);
                         foreach($result as $row){
@@ -69,24 +71,6 @@
                                 <i>@%s</i>
                             </div>
                         </div>", $img, $row["name"], $row["user_id_1"]);
-                        }
-                        $request = $mysqli->execute_query("SELECT Request.user_id_1, User.name, Request.user_id_2 from Request INNER JOIN User ON Request.user_id_2 = User.user_id WHERE Request.user_id_1 = ?",[$_SESSION["user_id"]]);
-                        foreach ($request as $res) {
-                            if(file_exists("../img/user_profile_pictures/".$res["user_id_2"].".webp")){
-                                $img=$res["user_id_2"];
-                            }
-                            else{
-                                $img="default";
-                            }
-                            printf("<div class='friend_block'>
-                            <img src='../img/user_profile_pictures/%s.webp'>
-                            <div>
-                                <b>%s</b>
-                                <br>
-                                <i>@%s</i>
-                                <button onclick='send_friends(event)'>Accepter</button>
-                            </div>
-                            </div>", $img, $res["name"], $res["user_id_2"]);
                         }
                     ?>
                 </div>

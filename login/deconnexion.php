@@ -1,4 +1,5 @@
 <?php
+    /* Appel php permettant de se déconnecter */
     session_unset();
     session_destroy();
     session_write_close();

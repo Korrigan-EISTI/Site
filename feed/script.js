@@ -1,14 +1,10 @@
-function htmlToElement(html) {
-    var template = document.createElement('template');
-    template.innerHTML = html.trim();
-    return template.content.firstChild;
-}
 const toggle_display = target => target.style.display = (target.style.display == 'none') ? 'block' : 'none';
 
 const escapeHtml = (unsafe) => {
     return unsafe.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;');
 }
 
+/* Fonction permettant de changer le theme de couleur en clair/sombre */
 function change_theme() {
     var root = document.querySelector(':root');
     var rootStyles = getComputedStyle(root);
@@ -26,14 +22,18 @@ function change_theme() {
     }
 }
 
+/* Fonction affichant/cachant la text area pour les réponses */
 function toggle_reply(event) {
     toggle_display(event.target.parentNode.children[3]);
 }
 
+/* Fonction envoyant les réponses à un post */
 function send_reply(event){
     toggle_display(event.target.parentNode);
     send(event);
 }
+
+/* Fonction envoyant les posts (réponses et posts) */
 function send(event){
     if(event.target.parentNode.children[0].value.trim()==""){
         return
@@ -87,6 +87,7 @@ function send(event){
 }
 window.onload = (event) => {};
 
+/* Fonction permettant d'ajouter un amis */
 function send_friends(event) {
     let request = new XMLHttpRequest();
     var data = new FormData();
@@ -103,6 +104,7 @@ function send_friends(event) {
     request.send(data);
 }
 
+/* Fonction permettant de décliner une demande d'amis */
 function send_delete(event){
     let request = new XMLHttpRequest();
     var data = new FormData();
@@ -118,16 +120,7 @@ function send_delete(event){
     request.send(data);
 }
 
-function importData(event) {
-    let photo = document.getElementById("file").files[0];
-    let data = new FormData();
-    data.append("photo", photo);
-    user_id = document.getElementById("user_id").innerHTML.split('@')[1];
-    data.append("user_id", user_id);
-    fetch('/img/user_profile_pictures/', {method: 'POST', body: data});
-}
-
-
+/* Fonction permettant d'afficher/cacher l'input type file pour le changement de photo de profile */
 function afficher_input_file(){
     if (document.getElementById("formPP").style.display == "block") {
         document.getElementById("formPP").style.display = "none";
