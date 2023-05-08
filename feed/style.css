@@ -52,6 +52,7 @@ body{
     margin: auto;
     margin: 10px;
     border-radius: 10%;
+    cursor: pointer;
 }
 
 #user_name {
