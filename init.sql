@@ -62,7 +62,7 @@ INSERT INTO `User` (user_id,name,email,password) VALUES ("unicorn_princess123", 
 INSERT INTO `Post` (user_id,`date`,message) VALUES ("lama",CAST( CURDATE() AS Date ),"Ceci est le premier post de ce magnifique site.");
 INSERT INTO `Message` (user_id_1,user_id_2,`date`,message) VALUES ("lama","ugo",CAST( CURDATE() AS Date ),"Salut Ugo MERLIER !");
 INSERT INTO `Message` (user_id_1,user_id_2,`date`,message) VALUES ("ugo","lama",CAST( CURDATE() AS Date ),"Salut Lama ! Tu vas bien ?");
-INSERT INTO `Message` (user_id_1,user_id_2,`date`,message) VALUES ("lama","ugo",CAST( CURDATE() AS Date ),"Je vais très bien et toi ?");
+INSERT INTO `Message` (user_id_1,user_id_2,`date`,message) VALUES ("lama","ugo",CAST( CURDATE() AS Date ),"Parfaitement et toi ?");
 INSERT INTO `Message` (user_id_1,user_id_2,`date`,message) VALUES ("ugo","lama",CAST( CURDATE() AS Date ),"Super !");
 INSERT INTO `Friends` (user_id_1, user_id_2) VALUES ("lama", "car_lover");
 INSERT INTO `Friends` (user_id_1, user_id_2) VALUES ("lama", "code_master");
