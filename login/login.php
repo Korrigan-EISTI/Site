@@ -48,7 +48,7 @@
         }
         if(isset($_POST["created"]))
         {
-            if($_POST["created"])
+            if($_POST["created"]=="true")
             {
                 echo "<p style='background-color:green'>Compte créé avec succès ☑</p>";
             }

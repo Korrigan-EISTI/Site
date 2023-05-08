@@ -55,7 +55,7 @@
             <br>
             <input id="create_account_button" type="submit" value="Créer">
         </form>
-        <br><br>
+        <br>
         <p>Cliquez <a href="login.php">ici</a> pour revenir à la fenêtre de connexion.</p>
     </div>
 </body>
