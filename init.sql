@@ -58,11 +58,11 @@ INSERT INTO `User` (user_id,name,email,password) VALUES ("mr_president", "Lillia
 INSERT INTO `User` (user_id,name,email,password) VALUES ("sinol", "Louis-Alexandre", "la.laguet95@gmail.com", "$2y$10$XJaxoy8oa1bcyRD2DHx65Og.yP4BQLl3IsQv.Mf8k3nTSrCp.Nb8G");
 INSERT INTO `User` (user_id,name,email,password) VALUES ("sujeebioss", "SujeeBioss", "sujeebioss@gmail.com", "$2y$10$nztIZuQJECfQFHiVrOiUZu0ak97zQsvAm524LE8wp1W8P1bxPpo02");
 INSERT INTO `User` (user_id,name,email,password) VALUES ("ugo_merlier","Ugo","ugo@gmail.com","$2y$10$LulQRaZTHcdU7SJwGMIuAOQHWDY3R1MF7gRSYZHRTgt4Itb7pq1u2");
-INSERT INTO `User` (user_id,name,email,password) VALUES ("unicorn_princess123", "OUI", "unicorn_princess123@gmail.com", "$2y$10$f4AdR7VogeH/srK2prZrl.Nnp7Awb0PH8OXQnvRDBhzNDVHrcJSKy");
+INSERT INTO `User` (user_id,name,email,password) VALUES ("unicorn_princess123", "Manel Hamane", "unicorn_princess123@gmail.com", "$2y$10$f4AdR7VogeH/srK2prZrl.Nnp7Awb0PH8OXQnvRDBhzNDVHrcJSKy");
 INSERT INTO `Post` (user_id,`date`,message) VALUES ("lama",CAST( CURDATE() AS Date ),"Ceci est le premier post de ce magnifique site.");
 INSERT INTO `Message` (user_id_1,user_id_2,`date`,message) VALUES ("lama","ugo_merlier",CAST( CURDATE() AS Date ),"Salut Ugo MERLIER !");
 INSERT INTO `Message` (user_id_1,user_id_2,`date`,message) VALUES ("ugo_merlier","lama",CAST( CURDATE() AS Date ),"Salut Lama ! Tu vas bien ?");
-INSERT INTO `Message` (user_id_1,user_id_2,`date`,message) VALUES ("lama","ugo_merlier",CAST( CURDATE() AS Date ),"Je vais très bien et toi ?");
+INSERT INTO `Message` (user_id_1,user_id_2,`date`,message) VALUES ("lama","ugo_merlier",CAST( CURDATE() AS Date ),"Parfaitement et toi ?");
 INSERT INTO `Message` (user_id_1,user_id_2,`date`,message) VALUES ("ugo_merlier","lama",CAST( CURDATE() AS Date ),"Super !");
 INSERT INTO `Friends` (user_id_1, user_id_2) VALUES ("lama", "car_lover");
 INSERT INTO `Friends` (user_id_1, user_id_2) VALUES ("lama", "code_master");
