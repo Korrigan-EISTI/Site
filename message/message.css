@@ -64,6 +64,7 @@ body{
 }
 .msg{
     border-radius: 5px;
+    cursor: pointer;
 }
 .msg:hover{
     background-color: lightgrey;
