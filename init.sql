@@ -47,7 +47,6 @@ CREATE TABLE Message (
   FOREIGN KEY (user_id_1) REFERENCES User(user_id),
   FOREIGN KEY (user_id_2) REFERENCES User(user_id)
 );
-
 INSERT INTO `User` (user_id,name,email,password) VALUES ("lama","lama","lama@gmail.com","$2y$10$ycEXe8Yh6G2dmqNqO1pJt.IRFRsuaCvOcaZpi5gVWM/MJGKgaTiGS");
 INSERT INTO `User` (user_id,name,email,password) VALUES ("car_lover","Clement","car_lover@gmail.com","$2y$10$Q4p1VPO1HRNp86leHs9nk.Fzv7rZFDwzHlaZ0RpK6VMFhNNcP9dA6");
 INSERT INTO `User` (user_id,name,email,password) VALUES ("code_master","Joan Legrand","code_master@gmail.com","$2y$10$iAEN10I0Lldus6GO94kYNORGEYEwj2BXF/ew1CkiROzznksLI7R/m");

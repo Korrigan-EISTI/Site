@@ -24,7 +24,7 @@
             <div class='post_block'>
                     <div class='comment_text'>
                         <textarea rows='5' placeholder='✎...'  maxlength='200'></textarea>
-                        <img src='../img/send_icon.webp' class='comment_send_button' onclick=''/>
+                        <img src='../img/send_icon.webp' class='comment_send_button' onclick='send_message(event)'/>
                     </div>
                 </div>
         </div>
