@@ -39,6 +39,11 @@ body{
 #div_profile {
     width: 15%;
     text-align: center;
+    overflow: auto;
+}
+
+#user_info {
+    padding-bottom: 20%;
 }
 
 #user_pic {
