@@ -9,7 +9,7 @@
     <?php
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         $mysqli = new mysqli("localhost", "lama", "lama_admin", "lama");
-        $result = $mysqli->execute_query("SELECT user_id FROM User WHERE ? = email",[$_POST["email"]]);
+        $result = $mysqli->execute_query("SELECT user_id FROM User WHERE ? = user_id",[$_POST["id"]]);
         if($result->num_rows)
         {
             echo '<form id="form" action="login.php" method="post">
