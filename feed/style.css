@@ -154,6 +154,7 @@ body{
 }
 .post_block_user_info {
     display: inline-block;
+    width: 100%;
 }
 
 .post_block_user_info>i {
@@ -173,7 +174,10 @@ body{
 }
 
 .indent{
-    margin-left: 50px;
+    padding-left: 30px;
+    margin-left: 5px;
+    border-left: 5px solid rgb(235, 235, 235);;
+    border-radius: 5px;
 }
 
 .comment_reply_button {
